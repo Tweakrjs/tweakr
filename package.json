@@ -29,7 +29,10 @@
     "release": "standard-version",
     "commit": "cz",
     "release:minor": "standard-version --release-as minor",
-    "release:major": "standard-version --release-as major"
+    "release:major": "standard-version --release-as major",
+    "test:array": "vitest run test/array",
+    "test:object": "vitest run test/object",
+    "test:string": "vitest run test/string"
   },
   "repository": {
     "type": "git",
@@ -42,10 +45,15 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@types/node": "^24.6.2",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.3",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   },
   "lint-staged": {
     "*.ts": "tsc --noEmit"
