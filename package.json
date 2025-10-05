@@ -1,0 +1,38 @@
+{
+  "name": "tweakr",
+  "version": "0.0.1",
+  "description": "A modern, modular utility library for JavaScript and TypeScript with functional, async, and immutable helpers.",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "utils",
+    "utility",
+    "typescript",
+    "modular",
+    "async",
+    "functional",
+    "immutable",
+    "helpers"
+  ],
+  "license": "MIT",
+  "author": "Coxlee Anthony Hubilla <https://github.com/coxxanthony>",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "lint": "eslint . --ext .ts",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coxxanthony/tweakr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coxxanthony/tweakr/issues"
+  },
+  "homepage": "https://github.com/coxxanthony/tweakr#readme"
+}
