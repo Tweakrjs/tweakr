@@ -1,6 +1,15 @@
 export async function readFromClipboard(): Promise<string> {
-  if (navigator.clipboard && navigator.clipboard.readText) {
-    return navigator.clipboard.readText();
+  if (navigator.clipboard?.readText) {
+    try {
+      return await navigator.clipboard.readText();
+    } catch (err) {
+      console.error("Failed to read from clipboard:", err);
+      throw err;
+    }
   }
-  throw new Error("Clipboard API not supported");
+
+  // Fallback is tricky because reading from clipboard without user action is blocked
+  throw new Error(
+    "Clipboard API not supported or requires a secure context with user interaction"
+  );
 }
