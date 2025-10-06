@@ -7,13 +7,11 @@
     "README.md",
     "LICENSE"
   ],
-  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/tweakr.esm.js",
       "require": "./dist/tweakr.cjs.js"
-    },
-    "./*": "./dist/*.js"
+    }
   },
   "sideEffects": false,
   "keywords": [
