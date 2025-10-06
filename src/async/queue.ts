@@ -2,18 +2,19 @@ export function queue(concurrency = 1) {
   const tasks: (() => Promise<void>)[] = [];
   let running = 0;
 
-  async function run() {
-    if (running >= concurrency || tasks.length === 0) return;
-    const task = tasks.shift();
-    if (!task) return;
-    running++;
-    try {
-      await task();
-    } finally {
-      running--;
-      run();
+  const run = async () => {
+    while (running < concurrency && tasks.length > 0) {
+      const task = tasks.shift();
+      if (!task) break;
+      running++;
+      task()
+        .catch(() => {}) // ignore, user handles errors
+        .finally(() => {
+          running--;
+          run(); // continue next task
+        });
     }
-  }
+  };
 
   return {
     add: (task: () => Promise<void>) => {
@@ -21,5 +22,6 @@ export function queue(concurrency = 1) {
       run();
     },
     size: () => tasks.length,
+    running: () => running,
   };
 }
