@@ -39,25 +39,46 @@ npm install tweakr
 
 # Using yarn
 yarn add tweakr
+
+# Using pnpm
+pnpm install tweakr
 ```
 
 ---
 
 ## 📂 Folder Structure
 
-```
-src/
-├─ array/       → Array utilities
-├─ async/       → Async utilities
-├─ function/    → Function utilities
-├─ lang/        → String / language utilities (v2: string/)
-├─ number/      → Number utilities
-├─ object/      → Object utilities
-├─ browser/     → Browser utilities
-└─ index.ts     → Re-exports all utilities
-```
+### 🟦 src/array/ — Array Helpers (13)
 
-**Tests per folder**: `tests/<folder>/` – alphabetical order for consistency.
+`chunk`, `compact`, `concat`, `difference`, `drop`, `dropRight`, `fill`, `flatten`, `flattenDeep`, `head`, `initial`, `intersection`, `join`
+
+### ⏱ src/async/ — Async Helpers (22)
+
+`asyncCompose`, `asyncPipe`, `debounceAsync`, `filterAsync`, `mapAsync`, `memoizeAsync`, `onceAsync`, `parallelLimit`, `queue`, `raceAll`, `reduceAsync`, `retry`, `retryBackoff`, `retryUntil`, `series`, `sleep`, `throttleAsync`, `timeout`, `waitFor`, `waterfall`, `withCancel`, `withTimeout`
+
+### 🌐 src/browser/ — Browser Helpers (20)
+
+`copyToClipboard`, `deleteCookie`, `downloadFile`, `focusElement`, `getCookie`, `getDeviceType`, `getQueryParam`, `getScrollPosition`, `getThemePreference`, `getUserLanguage`, `isInViewport`, `isOnline`, `onVisibilityChange`, `readFromClipboard`, `removeQueryParam`, `scrollToBottom`, `scrollToTop`, `setCookie`, `setFavicon`, `setQueryParam`
+
+### ⚙️ src/function/ — Function Helpers (22)
+
+`after`, `asyncCompose`, `asyncPipe`, `before`, `compose`, `curry`, `debounce`, `defer`, `delay`, `memoize`, `noop`, `once`, `partial`, `pipe`, `promisify`, `rateLimit`, `throttle`, `times`, `tryCatch`, `unary`, `wrap`, `yieldToNext`
+
+### 🔤 src/lang/ — String / Language Helpers (25)
+
+`camelCase`, `containsIgnoreCase`, `capitalize`, `endsWithIgnoreCase`, `escapeHtml`, `interpolate`, `isPalindrome`, `padLeft`, `padRight`, `pluralize`, `randomString`, `repeat`, `reverseString`, `singularize`, `startsWithIgnoreCase`, `stripAccents`, `stripHtml`, `stripWhitespace`, `slugify`, `titleCase`, `truncate`, `unescapeHtml`, `wordCount`
+
+### 🔢 src/number/ — Number Helpers (21)
+
+`clamp`, `decimalPlaces`, `factorial`, `fibonacci`, `isEven`, `isFiniteNumber`, `isInteger`, `isNegative`, `isOdd`, `isPositive`, `isPrime`, `lerp`, `max`, `min`, `random`, `round`, `sum`, `toDegrees`, `toFixedNumber`, `toPercentage`, `toRadians`
+
+### 🟫 src/object/ — Object Helpers (16)
+
+`cloneDeep`, `deepEqual`, `deepMerge`, `entries`, `filterKeys`, `filterValues`, `get`, `invert`, `keys`, `mapValues`, `merge`, `omit`, `pick`, `set`, `values`
+
+### 🛠 src/util/ — General Utilities (7)
+
+`debouncePromise`, `deepFreeze`, `identity`, `isEmpty`, `noopAsync`, `pipeAsync`, `uniqueId`
 
 ---
 
@@ -244,6 +265,7 @@ All changes are recorded in `CHANGELOG.md`.
 
 ---
 
-## 🛡 Security
+## 👥 Community / Contribution
 
-See [`SECURITY.md`](SECURITY.md) for reporting vulnerabilities and security practices.
+- [Contributing Guidelines](CONTRIBUTING.md) – How to contribute, coding style, and PR workflow
+- [Security Policy](SECURITY.md) – Reporting vulnerabilities and best practices
