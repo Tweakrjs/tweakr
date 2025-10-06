@@ -1,8 +1,10 @@
 # Tweakr
 
-![npm](https://img.shields.io/npm/v/tweakr) ![downloads](https://img.shields.io/npm/dw/tweakr) ![license](https://img.shields.io/npm/l/tweakr)
+![npm](https://img.shields.io/npm/v/tweakr) ![downloads](https://img.shields.io/npm/dw/tweakr) ![license](https://img.shields.io/npm/l/tweakr) [![release notes](https://img.shields.io/badge/Release-Notes-blue)](./RELEASE.md)
 
 **Tweakr** is a modern, lightweight utility library for JavaScript and TypeScript. It provides **functional, async, array, number, object, string (lang), and browser helpers**, designed to be **modular, tree-shakable, and TypeScript-ready**.
+
+💡 **See the latest releases:** [RELEASE.md](./RELEASE.md)
 
 ---
 
