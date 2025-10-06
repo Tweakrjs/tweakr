@@ -1,4 +1,4 @@
-import { stripHtml } from "../../src/lang/stripHtml";
+import { stripHtml } from "../../src/string/stripHtml";
 
 describe("stripHtml", () => {
   it("should remove HTML tags", () => {

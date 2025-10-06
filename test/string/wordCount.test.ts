@@ -1,4 +1,4 @@
-import { wordCount } from "../../src/lang/wordCount";
+import { wordCount } from "../../src/string/wordCount";
 
 describe("wordCount", () => {
   it("should count number of words", () => {

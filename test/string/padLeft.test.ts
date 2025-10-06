@@ -1,4 +1,4 @@
-import { padLeft } from "../../src/lang/padLeft";
+import { padLeft } from "../../src/string/padLeft";
 
 describe("padLeft", () => {
   it("should pad string on the left", () => {

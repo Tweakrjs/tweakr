@@ -1,4 +1,4 @@
-import { titleCase } from "../../src/lang/titleCase";
+import { titleCase } from "../../src/string/titleCase";
 
 describe("titleCase", () => {
   it("should capitalize first letter of each word", () => {

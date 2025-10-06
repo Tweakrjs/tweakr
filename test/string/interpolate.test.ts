@@ -1,4 +1,4 @@
-import { interpolate } from "../../src/lang/interpolate";
+import { interpolate } from "../../src/string/interpolate";
 
 describe("interpolate", () => {
   it("should replace template variables", () => {

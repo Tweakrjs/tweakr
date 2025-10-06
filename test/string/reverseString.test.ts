@@ -1,4 +1,4 @@
-import { reverseString } from "../../src/lang/reverseString";
+import { reverseString } from "../../src/string/reverseString";
 
 describe("reverseString", () => {
   it("should reverse characters", () => {

@@ -1,4 +1,4 @@
-import { singularize } from "../../src/lang/singularize";
+import { singularize } from "../../src/string/singularize";
 
 describe("singularize", () => {
   it("should convert plural to singular", () => {

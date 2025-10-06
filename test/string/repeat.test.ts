@@ -1,4 +1,4 @@
-import { repeat } from "../../src/lang/repeat";
+import { repeat } from "../../src/string/repeat";
 
 describe("repeat", () => {
   it("should repeat string N times", () => {
