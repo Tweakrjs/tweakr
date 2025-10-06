@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { join } from "../../src/array/join";
 
 describe("join", () => {

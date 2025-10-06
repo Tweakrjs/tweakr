@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { last } from "../../src/array/last";
 
 describe("last", () => {

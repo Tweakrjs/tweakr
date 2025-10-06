@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { concat } from "../../src/array/concat";
 
 describe("concat", () => {

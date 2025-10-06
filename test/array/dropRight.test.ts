@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { dropRight } from "../../src/array/dropRight";
 
 describe("dropRight", () => {

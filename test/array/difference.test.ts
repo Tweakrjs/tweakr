@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { difference } from "../../src/array/difference";
 
 describe("difference", () => {

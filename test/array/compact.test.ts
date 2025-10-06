@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { compact } from "../../src/array/compact";
 
 describe("compact", () => {

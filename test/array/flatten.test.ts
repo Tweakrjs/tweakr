@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { flatten } from "../../src/array/flatten";
 
 describe("flatten", () => {
