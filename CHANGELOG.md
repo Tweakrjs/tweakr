@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/coxxanthony/tweakr/compare/v0.4.2...v0.5.0) (2025-10-06)
+
+
+### Features
+
+* **lang:** add 25 language utilities with Vitest coverage ([edc4681](https://github.com/coxxanthony/tweakr/commit/edc468182aa021c4b9a1278cd6eae97b0ad4c24d))
+
 ### [0.4.2](https://github.com/coxxanthony/tweakr/compare/v0.4.1...v0.4.2) (2025-10-06)
 
 ### [0.2.1](https://github.com/coxxanthony/tweakr/compare/v0.2.0...v0.2.1) (2025-10-06)

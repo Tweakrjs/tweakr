@@ -1,6 +1,6 @@
 {
   "name": "tweakr",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "A modern, modular utility library for JavaScript and TypeScript with functional, async, and immutable helpers.",
   "files": [
     "dist",
