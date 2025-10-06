@@ -87,17 +87,17 @@ pnpm install tweakr
 ### Array Utilities
 
 ```ts
-import { flatten, unique, chunk } from "tweakr/array";
+import { flatten, uniq, chunk } from "tweakr/array";
 
 console.log(flatten([1, [2, 3], 2])); // [1,2,3]
-console.log(unique([1, 2, 2, 3])); // [1,2,3]
+console.log(uniq([1, 2, 2, 3])); // [1,2,3]
 console.log(chunk([1, 2, 3, 4, 5], 2)); // [[1,2],[3,4],[5]]
 ```
 
 ### Async Utilities
 
 ```ts
-import { sleep, retry, timeout } from "tweakr/async";
+import { sleep, retry, timeout } from "tweakr";
 
 await sleep(500);
 
@@ -115,7 +115,7 @@ await timeout(Promise.resolve("done"), 1000);
 ### Function Utilities
 
 ```ts
-import { debounce, throttle, memoize, compose } from "tweakr/function";
+import { debounce, throttle, memoize, compose } from "tweakr";
 
 const log = (msg: string) => console.log(msg);
 debounce(log, 200)("hello");
@@ -133,7 +133,7 @@ console.log(fib(10)); // 55
 ### Lang / String Utilities
 
 ```ts
-import { camelCase, kebabCase, capitalize, truncate } from "tweakr/lang";
+import { camelCase, kebabCase, capitalize, truncate } from "tweakr";
 
 console.log(camelCase("hello world")); // helloWorld
 console.log(kebabCase("Hello World")); // hello-world
@@ -144,7 +144,7 @@ console.log(truncate("This is a long sentence", 10)); // This is a…
 ### Number Utilities
 
 ```ts
-import { clamp, random, sum, range } from "tweakr/number";
+import { clamp, random, sum, range } from "tweakr";
 
 console.log(clamp(10, 0, 5)); // 5
 console.log(random(1, 10));
@@ -155,7 +155,7 @@ console.log(range(1, 5)); // [1,2,3,4,5]
 ### Object Utilities
 
 ```ts
-import { deepClone, merge, pick, omit, get, set } from "tweakr/object";
+import { deepClone, merge, pick, omit, get, set } from "tweakr";
 
 const obj = { a: 1, b: { c: 2 } };
 console.log(deepClone(obj));
@@ -170,7 +170,7 @@ console.log(obj.b.d); // 3
 ### Browser Utilities
 
 ```ts
-import { copyToClipboard, isOnline, loadScript } from "tweakr/browser";
+import { copyToClipboard, isOnline, loadScript } from "tweakr";
 
 copyToClipboard("Hello Tweakr!");
 console.log(isOnline());
