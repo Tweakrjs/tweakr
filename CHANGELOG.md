@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/coxxanthony/tweakr/compare/v0.7.0...v0.7.1) (2025-10-06)
+
+## [0.7.0](https://github.com/coxxanthony/tweakr/compare/v0.6.1...v0.7.0) (2025-10-06)
+
+
+### Features
+
+* **object:** add 15 object utilities with Vitest coverage ([9fcb94b](https://github.com/coxxanthony/tweakr/commit/9fcb94b71cc9f09a182afa5ee0d789b75ca96db7))
+
 ### [0.6.1](https://github.com/coxxanthony/tweakr/compare/v0.6.0...v0.6.1) (2025-10-06)
 
 ## [0.6.0](https://github.com/coxxanthony/tweakr/compare/v0.5.0...v0.6.0) (2025-10-06)
