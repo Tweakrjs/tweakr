@@ -227,7 +227,7 @@ import { memoize } from "tweakr/function";
 **UMD minified**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/tweakr@1.0.4/dist/tweakr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tweakr/dist/tweakr.min.js"></script>
 <script>
   Tweakr.sleep(100).then(() => console.log("Done"));
   console.log(Tweakr.flatten([1, [2, 3]]));
@@ -241,7 +241,7 @@ import { memoize } from "tweakr/function";
   import {
     sleep,
     flatten,
-  } from "https://cdn.jsdelivr.net/npm/tweakr@1.0.4/dist/tweakr.esm.js";
+  } from "https://cdn.jsdelivr.net/npm/tweakr/dist/tweakr.esm.js";
   await sleep(100);
   console.log(flatten([1, [2, 3]]));
 </script>
