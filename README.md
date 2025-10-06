@@ -1,8 +1,10 @@
 # Tweakr
 
-![npm](https://img.shields.io/npm/v/tweakr) ![downloads](https://img.shields.io/npm/dw/tweakr) ![license](https://img.shields.io/npm/l/tweakr)
+![npm](https://img.shields.io/npm/v/tweakr) ![downloads](https://img.shields.io/npm/dw/tweakr) ![license](https://img.shields.io/npm/l/tweakr) [![release notes](https://img.shields.io/badge/Release-Notes-blue)](./RELEASE.md)
 
 **Tweakr** is a modern, lightweight utility library for JavaScript and TypeScript. It provides **functional, async, array, number, object, string (lang), and browser helpers**, designed to be **modular, tree-shakable, and TypeScript-ready**.
+
+💡 **See the latest releases:** [RELEASE.md](./RELEASE.md)
 
 ---
 
@@ -19,11 +21,11 @@ The name **Tweakr** was chosen because the library helps developers **“tweak�
 ## 📦 Features
 
 - Functional helpers: `compose`, `pipe`, `debounce`, `throttle`, `memoize`, etc.
-- Async utilities: `sleep`, `retry`, `timeout`, `waitFor`
+- Async utilities: `sleep`, `retry`, `timeout`, `waitFor`, etc.
 - Array helpers: `flatten`, `chunk`, `unique`, `shuffle`, etc.
-- Object helpers: `merge`, `pick`, `omit`, `deepClone`, `get`, `set`
-- Number helpers: `clamp`, `random`, `sum`, `average`, `range`
-- Browser helpers: `copyToClipboard`, `loadScript`, `loadStyle`, `debounceEvent`, `throttleEvent`
+- Object helpers: `merge`, `pick`, `omit`, `deepClone`, `get`, `set`, etc.
+- Number helpers: `clamp`, `random`, `sum`, `average`, `range`, etc.
+- Browser helpers: `copyToClipboard`, `loadScript`, `loadStyle`, `debounceEvent`, `throttleEvent`, etc.
 - Modular imports: per-folder, tree-shakable
 - TypeScript typings for all utilities
 - Minified UMD for browser global `Tweakr`
@@ -43,42 +45,6 @@ yarn add tweakr
 # Using pnpm
 pnpm install tweakr
 ```
-
----
-
-## 📂 Folder Structure
-
-### 🟦 src/array/ — Array Helpers (13)
-
-`chunk`, `compact`, `concat`, `difference`, `drop`, `dropRight`, `fill`, `flatten`, `flattenDeep`, `head`, `initial`, `intersection`, `join`
-
-### ⏱ src/async/ — Async Helpers (22)
-
-`asyncCompose`, `asyncPipe`, `debounceAsync`, `filterAsync`, `mapAsync`, `memoizeAsync`, `onceAsync`, `parallelLimit`, `queue`, `raceAll`, `reduceAsync`, `retry`, `retryBackoff`, `retryUntil`, `series`, `sleep`, `throttleAsync`, `timeout`, `waitFor`, `waterfall`, `withCancel`, `withTimeout`
-
-### 🌐 src/browser/ — Browser Helpers (20)
-
-`copyToClipboard`, `deleteCookie`, `downloadFile`, `focusElement`, `getCookie`, `getDeviceType`, `getQueryParam`, `getScrollPosition`, `getThemePreference`, `getUserLanguage`, `isInViewport`, `isOnline`, `onVisibilityChange`, `readFromClipboard`, `removeQueryParam`, `scrollToBottom`, `scrollToTop`, `setCookie`, `setFavicon`, `setQueryParam`
-
-### ⚙️ src/function/ — Function Helpers (22)
-
-`after`, `asyncCompose`, `asyncPipe`, `before`, `compose`, `curry`, `debounce`, `defer`, `delay`, `memoize`, `noop`, `once`, `partial`, `pipe`, `promisify`, `rateLimit`, `throttle`, `times`, `tryCatch`, `unary`, `wrap`, `yieldToNext`
-
-### 🔤 src/lang/ — String / Language Helpers (25)
-
-`camelCase`, `containsIgnoreCase`, `capitalize`, `endsWithIgnoreCase`, `escapeHtml`, `interpolate`, `isPalindrome`, `padLeft`, `padRight`, `pluralize`, `randomString`, `repeat`, `reverseString`, `singularize`, `startsWithIgnoreCase`, `stripAccents`, `stripHtml`, `stripWhitespace`, `slugify`, `titleCase`, `truncate`, `unescapeHtml`, `wordCount`
-
-### 🔢 src/number/ — Number Helpers (21)
-
-`clamp`, `decimalPlaces`, `factorial`, `fibonacci`, `isEven`, `isFiniteNumber`, `isInteger`, `isNegative`, `isOdd`, `isPositive`, `isPrime`, `lerp`, `max`, `min`, `random`, `round`, `sum`, `toDegrees`, `toFixedNumber`, `toPercentage`, `toRadians`
-
-### 🟫 src/object/ — Object Helpers (16)
-
-`cloneDeep`, `deepEqual`, `deepMerge`, `entries`, `filterKeys`, `filterValues`, `get`, `invert`, `keys`, `mapValues`, `merge`, `omit`, `pick`, `set`, `values`
-
-### 🛠 src/util/ — General Utilities (7)
-
-`debouncePromise`, `deepFreeze`, `identity`, `isEmpty`, `noopAsync`, `pipeAsync`, `uniqueId`
 
 ---
 
@@ -190,29 +156,59 @@ import { memoize } from "tweakr/function";
 
 ---
 
+## 🛠 Utility Helpers by Category
+
+### 🟦 Array Helpers (13)
+
+`chunk`, `compact`, `concat`, `difference`, `drop`, `dropRight`, `fill`, `flatten`, `flattenDeep`, `head`, `initial`, `intersection`, `join`
+
+### ⏱ Async Helpers (22)
+
+`asyncCompose`, `asyncPipe`, `debounceAsync`, `filterAsync`, `mapAsync`, `memoizeAsync`, `onceAsync`, `parallelLimit`, `queue`, `raceAll`, `reduceAsync`, `retry`, `retryBackoff`, `retryUntil`, `series`, `sleep`, `throttleAsync`, `timeout`, `waitFor`, `waterfall`, `withCancel`, `withTimeout`
+
+### 🌐 Browser Helpers (20)
+
+`copyToClipboard`, `deleteCookie`, `downloadFile`, `focusElement`, `getCookie`, `getDeviceType`, `getQueryParam`, `getScrollPosition`, `getThemePreference`, `getUserLanguage`, `isInViewport`, `isOnline`, `onVisibilityChange`, `readFromClipboard`, `removeQueryParam`, `scrollToBottom`, `scrollToTop`, `setCookie`, `setFavicon`, `setQueryParam`
+
+### ⚙️ Function Helpers (22)
+
+`after`, `asyncCompose`, `asyncPipe`, `before`, `compose`, `curry`, `debounce`, `defer`, `delay`, `memoize`, `noop`, `once`, `partial`, `pipe`, `promisify`, `rateLimit`, `throttle`, `times`, `tryCatch`, `unary`, `wrap`, `yieldToNext`
+
+### 🔤 String / Language Helpers (25)
+
+`camelCase`, `containsIgnoreCase`, `capitalize`, `endsWithIgnoreCase`, `escapeHtml`, `interpolate`, `isPalindrome`, `padLeft`, `padRight`, `pluralize`, `randomString`, `repeat`, `reverseString`, `singularize`, `startsWithIgnoreCase`, `stripAccents`, `stripHtml`, `stripWhitespace`, `slugify`, `titleCase`, `truncate`, `unescapeHtml`, `wordCount`
+
+### 🔢 Number Helpers (21)
+
+`clamp`, `decimalPlaces`, `factorial`, `fibonacci`, `isEven`, `isFiniteNumber`, `isInteger`, `isNegative`, `isOdd`, `isPositive`, `isPrime`, `lerp`, `max`, `min`, `random`, `round`, `sum`, `toDegrees`, `toFixedNumber`, `toPercentage`, `toRadians`
+
+### 🟫 Object Helpers (16)
+
+`cloneDeep`, `deepEqual`, `deepMerge`, `entries`, `filterKeys`, `filterValues`, `get`, `invert`, `keys`, `mapValues`, `merge`, `omit`, `pick`, `set`, `values`
+
+### 🛠 General Utilities (7)
+
+`debouncePromise`, `deepFreeze`, `identity`, `isEmpty`, `noopAsync`, `pipeAsync`, `uniqueId`
+
+---
+
 ## 🛣 Roadmap
 
-### v1 (Current)
+### 1.x (Current & Improvements)
 
 - Fully implemented: `array`, `async`, `function`, `lang`, `number`, `object`, `browser`
 - Modular, tree-shakable, TypeScript-ready
 - Minified UMD for browser usage
 - Comprehensive Vitest coverage
+- Incremental improvements in 1.x releases:
 
-### v2
-
-- Rename `lang/` → `string/`
-- Add more string utilities (`replaceAll`, `startsWith`, `endsWith`, `pad`)
-- Improve browser helpers (DOM query, event utilities)
-- Add more async helpers (`parallelLimit`, `queue`)
-- Modular ESM import hints per folder
-
-### v3
-
-- Performance optimization for large arrays/objects
-- Optional plugin system
-- Optional React / Vue helpers (hooks, directives)
-- Additional modern frontend utilities
+  - **Internal migration:** `lang/` → `string/` with backward-compatible exports
+  - Performance optimizations for heavy utilities (`flattenDeep`, `deepMerge`, `memoize`, `asyncCompose`)
+  - Improved TypeScript typings and generics
+  - Bug fixes and edge-case handling for arrays, objects, numbers, and browser utilities
+  - Updated documentation and examples
+  - Minor async and promise helper refinements (`debounceAsync`, `pipeAsync`, `queue`)
+  - Gradual addition of new string utilities (`replaceAll`, `startsWith`, `endsWith`, `pad`, etc.)
 
 ---
 
@@ -231,7 +227,7 @@ import { memoize } from "tweakr/function";
 **UMD minified**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/tweakr@0.7.1/dist/tweakr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tweakr/dist/tweakr.min.js"></script>
 <script>
   Tweakr.sleep(100).then(() => console.log("Done"));
   console.log(Tweakr.flatten([1, [2, 3]]));
@@ -245,7 +241,7 @@ import { memoize } from "tweakr/function";
   import {
     sleep,
     flatten,
-  } from "https://cdn.jsdelivr.net/npm/tweakr@0.7.1/dist/tweakr.esm.js";
+  } from "https://cdn.jsdelivr.net/npm/tweakr/dist/tweakr.esm.js";
   await sleep(100);
   console.log(flatten([1, [2, 3]]));
 </script>
