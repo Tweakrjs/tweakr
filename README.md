@@ -48,35 +48,35 @@ pnpm install tweakr
 
 ## 📂 Folder Structure
 
-### 🟦 src/array/ — Array Helpers (13)
+### 🟦 Array Helpers (13)
 
 `chunk`, `compact`, `concat`, `difference`, `drop`, `dropRight`, `fill`, `flatten`, `flattenDeep`, `head`, `initial`, `intersection`, `join`
 
-### ⏱ src/async/ — Async Helpers (22)
+### ⏱ Async Helpers (22)
 
 `asyncCompose`, `asyncPipe`, `debounceAsync`, `filterAsync`, `mapAsync`, `memoizeAsync`, `onceAsync`, `parallelLimit`, `queue`, `raceAll`, `reduceAsync`, `retry`, `retryBackoff`, `retryUntil`, `series`, `sleep`, `throttleAsync`, `timeout`, `waitFor`, `waterfall`, `withCancel`, `withTimeout`
 
-### 🌐 src/browser/ — Browser Helpers (20)
+### 🌐 Browser Helpers (20)
 
 `copyToClipboard`, `deleteCookie`, `downloadFile`, `focusElement`, `getCookie`, `getDeviceType`, `getQueryParam`, `getScrollPosition`, `getThemePreference`, `getUserLanguage`, `isInViewport`, `isOnline`, `onVisibilityChange`, `readFromClipboard`, `removeQueryParam`, `scrollToBottom`, `scrollToTop`, `setCookie`, `setFavicon`, `setQueryParam`
 
-### ⚙️ src/function/ — Function Helpers (22)
+### ⚙️ Function Helpers (22)
 
 `after`, `asyncCompose`, `asyncPipe`, `before`, `compose`, `curry`, `debounce`, `defer`, `delay`, `memoize`, `noop`, `once`, `partial`, `pipe`, `promisify`, `rateLimit`, `throttle`, `times`, `tryCatch`, `unary`, `wrap`, `yieldToNext`
 
-### 🔤 src/lang/ — String / Language Helpers (25)
+### 🔤 String / Language Helpers (25)
 
 `camelCase`, `containsIgnoreCase`, `capitalize`, `endsWithIgnoreCase`, `escapeHtml`, `interpolate`, `isPalindrome`, `padLeft`, `padRight`, `pluralize`, `randomString`, `repeat`, `reverseString`, `singularize`, `startsWithIgnoreCase`, `stripAccents`, `stripHtml`, `stripWhitespace`, `slugify`, `titleCase`, `truncate`, `unescapeHtml`, `wordCount`
 
-### 🔢 src/number/ — Number Helpers (21)
+### 🔢 Number Helpers (21)
 
 `clamp`, `decimalPlaces`, `factorial`, `fibonacci`, `isEven`, `isFiniteNumber`, `isInteger`, `isNegative`, `isOdd`, `isPositive`, `isPrime`, `lerp`, `max`, `min`, `random`, `round`, `sum`, `toDegrees`, `toFixedNumber`, `toPercentage`, `toRadians`
 
-### 🟫 src/object/ — Object Helpers (16)
+### 🟫 Object Helpers (16)
 
 `cloneDeep`, `deepEqual`, `deepMerge`, `entries`, `filterKeys`, `filterValues`, `get`, `invert`, `keys`, `mapValues`, `merge`, `omit`, `pick`, `set`, `values`
 
-### 🛠 src/util/ — General Utilities (7)
+### 🛠 General Utilities (7)
 
 `debouncePromise`, `deepFreeze`, `identity`, `isEmpty`, `noopAsync`, `pipeAsync`, `uniqueId`
 
