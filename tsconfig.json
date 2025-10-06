@@ -1,13 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    /* Language and Module settings */
+    "target": "ESNext",
     "module": "ESNext",
-    "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "moduleResolution": "bundler",
+
+    /* Strictness & compatibility */
     "strict": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "resolveJsonModule": true,
+
+    /* Project layout */
+    "rootDir": ".",
+    "outDir": "dist",
+
+    /* Vitest + Node globals */
+    "types": ["vitest/globals", "node"]
   },
-  "include": ["src/**/*"]
+  "include": ["src", "test", "vitest.config.ts"],
+  "exclude": ["node_modules", "dist"]
 }
