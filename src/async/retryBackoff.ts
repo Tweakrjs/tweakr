@@ -1,17 +1,40 @@
+export interface RetryBackoffOptions {
+  /** Maximum number of retries */
+  retries?: number;
+  /** Initial delay in ms */
+  baseDelay?: number;
+  /** Exponential factor for delay */
+  factor?: number;
+  /** Maximum delay cap in ms */
+  maxDelay?: number;
+}
+
 export async function retryBackoff<T>(
   fn: () => Promise<T>,
-  retries = 3,
-  baseDelay = 100
+  options: RetryBackoffOptions = {}
 ): Promise<T> {
+  const {
+    retries = 3,
+    baseDelay = 100,
+    factor = 2,
+    maxDelay = 10000,
+  } = options;
+
   let lastError: any;
-  for (let i = 0; i < retries; i++) {
+
+  for (let attempt = 0; attempt < retries; attempt++) {
     try {
       return await fn();
     } catch (err) {
       lastError = err;
-      const delay = baseDelay * 2 ** i;
-      if (i < retries - 1) await new Promise((r) => setTimeout(r, delay));
+
+      if (attempt < retries - 1) {
+        // calculate exponential backoff delay
+        let delay = Math.min(baseDelay * factor ** attempt, maxDelay);
+        await new Promise((r) => setTimeout(r, delay));
+      }
     }
   }
+
   throw lastError;
 }

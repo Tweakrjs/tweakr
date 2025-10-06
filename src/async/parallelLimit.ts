@@ -5,12 +5,17 @@ export async function parallelLimit<T>(
   const results: T[] = [];
   let index = 0;
 
-  async function worker() {
-    while (index < tasks.length) {
+  const worker = async () => {
+    while (true) {
       const i = index++;
-      results[i] = await tasks[i]();
+      if (i >= tasks.length) break;
+      try {
+        results[i] = await tasks[i]();
+      } catch (err) {
+        throw err; // propagate errors
+      }
     }
-  }
+  };
 
   await Promise.all(
     Array(Math.min(limit, tasks.length)).fill(null).map(worker)

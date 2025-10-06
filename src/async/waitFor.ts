@@ -1,12 +1,26 @@
+export interface WaitForOptions {
+  /** Delay between polls in ms or a function returning next delay */
+  interval?: number | (() => number);
+  /** Maximum time to wait before throwing */
+  timeoutMs?: number;
+}
+
 export async function waitFor(
   condition: () => boolean | Promise<boolean>,
-  interval = 100,
-  timeoutMs = 5000
+  options: WaitForOptions = {}
 ): Promise<void> {
+  const { interval = 100, timeoutMs = 5000 } = options;
   const start = Date.now();
-  while (!(await condition())) {
-    if (Date.now() - start > timeoutMs)
+
+  while (true) {
+    const result = await condition();
+    if (result) return;
+
+    if (Date.now() - start > timeoutMs) {
       throw new Error("Timeout waiting for condition");
-    await new Promise((r) => setTimeout(r, interval));
+    }
+
+    const waitTime = typeof interval === "function" ? interval() : interval;
+    await new Promise((r) => setTimeout(r, waitTime));
   }
 }
