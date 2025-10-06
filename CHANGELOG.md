@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/coxxanthony/tweakr/compare/v0.5.0...v0.6.0) (2025-10-06)
+
+
+### Features
+
+* **number:** add 21 number utilities with Vitest coverage ([f3dad50](https://github.com/coxxanthony/tweakr/commit/f3dad50f3461bd17a0ecdc3209a394320f898c62))
+
 ## [0.5.0](https://github.com/coxxanthony/tweakr/compare/v0.4.2...v0.5.0) (2025-10-06)
 
 
