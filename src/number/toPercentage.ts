@@ -4,5 +4,7 @@ export function toPercentage(
   decimals = 2
 ): number {
   if (total === 0) return 0;
-  return parseFloat(((value / total) * 100).toFixed(decimals));
+  const factor = 10 ** decimals;
+  const percentage = (value / total) * 100;
+  return Math.round(percentage * factor) / factor;
 }

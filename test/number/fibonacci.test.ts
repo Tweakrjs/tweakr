@@ -1,13 +1,24 @@
 import { fibonacci } from "../../src/number/fibonacci";
 
 describe("fibonacci", () => {
-  it("should return nth Fibonacci number", () => {
-    expect(fibonacci(0)).toBe(0);
-    expect(fibonacci(1)).toBe(1);
-    expect(fibonacci(7)).toBe(13);
+  it.each([
+    [0, 0],
+    [1, 1],
+    [2, 1],
+    [3, 2],
+    [7, 13],
+    [10, 55],
+  ])("should return fibonacci(%i) = %i", (input, expected) => {
+    expect(fibonacci(input)).toBe(expected);
   });
 
   it("should throw for negative numbers", () => {
-    expect(() => fibonacci(-1)).toThrow();
+    expect(() => fibonacci(-5)).toThrow(
+      "Fibonacci not defined for negative numbers"
+    );
+  });
+
+  it("should compute large numbers efficiently", () => {
+    expect(fibonacci(30)).toBe(832040); // ensures memoization works
   });
 });
