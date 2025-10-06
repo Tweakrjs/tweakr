@@ -1,4 +1,4 @@
-import { isPalindrome } from "../../src/lang/isPalindrome";
+import { isPalindrome } from "../../src/string/isPalindrome";
 
 describe("isPalindrome", () => {
   it("should detect palindromes ignoring case and non-alphanumeric", () => {

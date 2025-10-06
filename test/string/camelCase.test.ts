@@ -1,4 +1,4 @@
-import { camelCase } from "../../src/lang/camelCase";
+import { camelCase } from "../../src/string/camelCase";
 
 describe("camelCase", () => {
   it("should convert string to camelCase", () => {

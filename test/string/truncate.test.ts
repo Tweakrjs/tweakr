@@ -1,5 +1,5 @@
 // test/lang/truncate.test.ts
-import { truncate } from "../../src/lang/truncate";
+import { truncate } from "../../src/string/truncate";
 
 describe("truncate", () => {
   it("should truncate string with suffix", () => {

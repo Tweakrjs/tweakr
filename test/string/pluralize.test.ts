@@ -1,4 +1,4 @@
-import { pluralize } from "../../src/lang/pluralize";
+import { pluralize } from "../../src/string/pluralize";
 
 describe("pluralize", () => {
   it("should pluralize words correctly", () => {

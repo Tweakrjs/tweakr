@@ -1,4 +1,4 @@
-import { slugify } from "../../src/lang/slugify";
+import { slugify } from "../../src/string/slugify";
 
 describe("slugify", () => {
   it("should convert string to URL-friendly slug", () => {

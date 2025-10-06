@@ -1,4 +1,4 @@
-import { unescapeHtml } from "../../src/lang/unescapeHtml";
+import { unescapeHtml } from "../../src/string/unescapeHtml";
 
 describe("unescapeHtml", () => {
   it("should convert HTML entities back", () => {

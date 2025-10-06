@@ -1,4 +1,4 @@
-import { startsWithIgnoreCase } from "../../src/lang/startsWithIgnoreCase";
+import { startsWithIgnoreCase } from "../../src/string/startsWithIgnoreCase";
 
 describe("startsWithIgnoreCase", () => {
   it("should check string start ignoring case", () => {

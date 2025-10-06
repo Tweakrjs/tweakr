@@ -1,4 +1,4 @@
-import { escapeHtml } from "../../src/lang/escapeHtml";
+import { escapeHtml } from "../../src/string/escapeHtml";
 
 describe("escapeHtml", () => {
   it("should escape HTML special characters", () => {

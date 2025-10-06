@@ -1,4 +1,4 @@
-import { stripWhitespace } from "../../src/lang/stripWhitespace";
+import { stripWhitespace } from "../../src/string/stripWhitespace";
 
 describe("stripWhitespace", () => {
   it("should remove all whitespace", () => {

@@ -1,4 +1,4 @@
-import { containsIgnoreCase } from "../../src/lang/containsIgnoreCase";
+import { containsIgnoreCase } from "../../src/string/containsIgnoreCase";
 
 describe("containsIgnoreCase", () => {
   it("should check substring ignoring case", () => {

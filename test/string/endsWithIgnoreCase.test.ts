@@ -1,4 +1,4 @@
-import { endsWithIgnoreCase } from "../../src/lang/endsWithIgnoreCase";
+import { endsWithIgnoreCase } from "../../src/string/endsWithIgnoreCase";
 
 describe("endsWithIgnoreCase", () => {
   it("should check string end ignoring case", () => {

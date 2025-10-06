@@ -43,7 +43,6 @@
     "test:async": "vitest run test/async",
     "test:browser": "vitest run test/browser",
     "test:function": "vitest run test/function",
-    "test:lang": "vitest run test/lang",
     "test:number": "vitest run test/number",
     "test:object": "vitest run test/object",
     "test:string": "vitest run test/string",
