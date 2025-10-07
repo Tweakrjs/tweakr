@@ -30,3 +30,11 @@ export * from "./truncate";
 export * from "./unescapeHtml";
 export * from "./wordCount";
 export * from "./randomString";
+
+// New v1.2 String Utilities
+export * from "./removeNumbers";
+export * from "./truncateWords";
+export * from "./replaceVowels";
+export * from "./reverseWordsAdvanced";
+export * from "./snakeToCamel";
+export * from "./camelToKebab";
