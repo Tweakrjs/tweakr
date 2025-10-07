@@ -54,7 +54,7 @@
 - **New String Utilities v1.1.x:**
 
   - `endsWith`
-  - `honorific`
+  - `honorific` (suffix-aware)
   - `includes`
   - `removePrefix`
   - `removeSuffix`
@@ -99,7 +99,8 @@ console.log(groupBy(users, (u) => u.role));
 ```ts
 import {
   endsWith,
-  honorific,
+  removeHonorificSuffix,
+  getHonorificSuffix,
   includes,
   removePrefix,
   removeSuffix,
@@ -111,7 +112,13 @@ import {
 } from "tweakr";
 
 console.log(endsWith("Hello World", "World")); // true
-console.log(honorific("John", "Mr.")); // "Mr. John"
+
+// Honorific suffix handling
+console.log(removeHonorificSuffix("John Doe Jr.")); // "John Doe"
+console.log(removeHonorificSuffix("Jane Smith IV")); // "Jane Smith"
+console.log(getHonorificSuffix("John Doe Jr.")); // "Jr."
+console.log(getHonorificSuffix("Jane Smith")); // null
+
 console.log(includes("TypeScript", "Script")); // true
 console.log(removePrefix("unhappy", "un")); // "happy"
 console.log(removeSuffix("running", "ing")); // "run"
