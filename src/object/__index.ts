@@ -13,3 +13,17 @@ export * from "./omit";
 export * from "./pick";
 export * from "./set";
 export * from "./values";
+
+// v1.2 additions
+export * from "./pickBy";
+export * from "./omitBy";
+export * from "./mapKeysDeep";
+export * from "./mapValuesDeep";
+export * from "./invertBy";
+export * from "./has";
+export * from "./unset";
+export * from "./mergeAll";
+export * from "./assignDeep";
+export * from "./pickDeep";
+export * from "./omitDeep";
+export * from "./getOrDefault";
