@@ -1,8 +1,8 @@
 # Tweakr Updates
 
-## v1.1.x – 2025-10-08
+## v1.1.0 – 2025-10-07
 
-**🔥 New in v1.1.x:**
+**🔥 New in v1.1.0:**
 
 - **`groupBy`** – Newly added! Group array elements by a key or callback, safely handling `undefined`/`null` keys.
 
