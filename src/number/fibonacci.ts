@@ -1,3 +1,21 @@
+/**
+ * Computes the `n`-th Fibonacci number using memoization.
+ *
+ * @example
+ * ```ts
+ * fibonacci(0); // returns 0
+ * fibonacci(1); // returns 1
+ * fibonacci(5); // returns 5
+ * fibonacci(10); // returns 55
+ * ```
+ *
+ * @param n - Non-negative integer representing the position in the Fibonacci sequence.
+ * @returns The `n`-th Fibonacci number.
+ * @throws Will throw an error if `n` is negative.
+ *
+ * @category Number
+ * @since 1.1.0
+ */
 const memoCache: Record<string, number> = {};
 
 export function fibonacci(n: number): number {
