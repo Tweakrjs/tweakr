@@ -20,3 +20,17 @@ export * from "./tryCatch";
 export * from "./unary";
 export * from "./wrap";
 export * from "./yieldToNext";
+
+// v1.2 new functions
+export * from "./tap";
+export * from "./wrapDeep";
+export * from "./afterAsync";
+export * from "./beforeAsync";
+export * from "./curryN";
+export * from "./composeN";
+export * from "./pipeN";
+export * from "./memoizeN";
+export * from "./onceNAsync";
+export * from "./noopAsync";
+export * from "./identityAsync";
+export * from "./retryAsync";
