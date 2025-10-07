@@ -30,6 +30,7 @@
   "module": "dist/tweakr.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "docs": "typedoc",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
     "test": "vitest run",
@@ -72,6 +73,7 @@
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.2",
     "tsup": "^8.5.0",
+    "typedoc": "^0.28.13",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
