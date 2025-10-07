@@ -1,3 +1,26 @@
+/**
+ * Reads text from the system clipboard.
+ *
+ * Uses the modern `navigator.clipboard.readText` API when available.
+ * Throws an error if the API is unsupported or requires user interaction.
+ *
+ * @example
+ * ```ts
+ * try {
+ *   const text = await readFromClipboard();
+ *   console.log("Clipboard text:", text);
+ * } catch (err) {
+ *   console.error(err);
+ * }
+ * ```
+ *
+ * @returns A promise that resolves with the clipboard text.
+ *
+ * @throws Will throw an error if reading from the clipboard is not supported.
+ *
+ * @category Browser
+ * @since 1.1.0
+ */
 export async function readFromClipboard(): Promise<string> {
   if (navigator.clipboard?.readText) {
     try {
