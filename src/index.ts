@@ -1,9 +1,10 @@
 /**
- * Tweakr v1 – Initial Release 🚀
+ * Tweakr v1.1 – Initial Release 🚀
  * Release Date: 2025-10-06
  *
  * A modern, lightweight utility library for JavaScript/TypeScript.
- * It provides functional, async, array, number, object, browser, and string helpers, fully typed, tree-shakable, and thoroughly tested.
+ * Provides functional, async, array, number, object, browser, and string helpers,
+ * fully typed, tree-shakable, and thoroughly tested.
  *
  * ## Installation
  *
@@ -48,27 +49,28 @@
  *
  * ## Updates / Changelog
  *
- * **v1.1.0**
+ * **v1.1.0** – 2025-10-08
+ * - Renamed `lang/` folder → `string/`
  * - Added `groupBy` to array utilities
  * - Added new string helpers: `replaceAll`, `startsWith`, `endsWith`, `padLeft`, `padRight`
  * - Optimized `flattenDeep` for large arrays
  *
- * **v1.0.0**
+ * **v1.0.0** – 2025-10-06
  * - Initial release with 153 functions across array, async, function, number, object, browser, and string modules
  *
  * ## Key Features
  *
  * ### Array
- * chunk, compact, concat, difference, drop, dropRight, fill, flatten, flattenDeep, head, initial, intersection, join, groupBy
+ * chunk, compact, concat, difference, drop, dropRight, fill, flatten, flattenDeep, groupBy, head, initial, intersection, join, groupBy
  *
  * ### Async
  * debounceAsync, filterAsync, mapAsync, memoizeAsync, onceAsync, parallelLimit, queue, raceAll, reduceAsync, retry, retryBackoff, retryUntil, series, sleep, throttleAsync, timeout, waitFor, waterfall, withCancel, withTimeout, asyncCompose, asyncPipe
  *
  * ### Function
- * after, before, compose, curry, debounce, defer, delay, memoize, noop, once, partial, pipe, promisify, rateLimit, throttle, times, tryCatch, unary, wrap, yieldToNext, asyncCompose, asyncPipe
+ * after, before, compose, curry, debounce, defer, delay, memoize, noop, once, partial, pipe, promisify, rateLimit, throttle, times, tryCatch, unary, wrap, yieldToNext
  *
- * ### String / Language
- * camelCase, capitalize, containsIgnoreCase, endsWithIgnoreCase, escapeHtml, interpolate, isPalindrome, padLeft, padRight, pluralize, randomString, repeat, reverseString, singularize, startsWithIgnoreCase, stripAccents, stripHtml, stripWhitespace, slugify, titleCase, truncate, unescapeHtml, wordCount
+ * ### String
+ * camelCase, capitalize, containsIgnoreCase, endsWithIgnoreCase, escapeHtml, interpolate, isPalindrome, padLeft, padRight, pluralize, randomString, repeat, reverseString, singularize, startsWithIgnoreCase, stripAccents, stripHtml, stripWhitespace, slugify, titleCase, truncate, unescapeHtml, wordCount, endsWith, honorific, includes, removePrefix, removeSuffix, replaceAll, startsWith, trimAll, collapseWhitespace, ordinalSuffix
  *
  * ### Number
  * clamp, decimalPlaces, factorial, fibonacci, isEven, isFiniteNumber, isInteger, isNegative, isOdd, isPositive, isPrime, lerp, max, min, random, round, sum, toDegrees, toFixedNumber, toPercentage, toRadians
@@ -82,11 +84,10 @@
  * ### Utilities
  * debouncePromise, deepFreeze, identity, isEmpty, noopAsync, pipeAsync, uniqueId
  *
- *
- * ## Functions
- *
+ * # Methods
  * @packageDocumentation
  */
+
 export * from "./array/__index";
 export * from "./async/__index";
 export * from "./browser/__index";
