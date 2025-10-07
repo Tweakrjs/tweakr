@@ -1,10 +1,10 @@
-# Tweakr Updates
+# Tweakr Release Notes
 
 **Site:** [https://tweakrjs.github.io/tweakr/](https://tweakrjs.github.io/tweakr/)
 
-## v1.1.0 – 2025-10-07
+## v1.1.x – 2025-10-07
 
-**🔥 New in v1.1.0:**
+**🔥 New in v1.1.x:**
 
 - **`groupBy`** – Newly added! Group array elements by a key or callback, safely handling `undefined`/`null` keys.
 
@@ -51,7 +51,19 @@
 ### String Utilities
 
 - All previous `lang/` functions fully migrated to `string/`
-- Added new string helpers: `replaceAll`, `startsWith`, `endsWith`, `padLeft`, `padRight`, etc.
+- **New String Utilities v1.1.x:**
+
+  - `endsWith`
+  - `honorific`
+  - `includes`
+  - `removePrefix`
+  - `removeSuffix`
+  - `replaceAll`
+  - `startsWith`
+  - `trimAll`
+  - `collapseWhitespace`
+  - `ordinalSuffix`
+
 - Full TypeScript typings for all string helpers
 
 ### General Improvements
@@ -62,7 +74,9 @@
 
 ---
 
-**Quick Usage Example for the New `groupBy`:**
+## Quick Usage Examples
+
+### `groupBy`
 
 ```ts
 import { groupBy } from "tweakr";
@@ -78,6 +92,36 @@ console.log(groupBy(users, (u) => u.role));
 //   admin: [{ name: 'Alice', role: 'admin' }, { name: 'Carol', role: 'admin' }],
 //   user: [{ name: 'Bob', role: 'user' }]
 // }
+```
+
+### New String Utilities v1.1.x
+
+```ts
+import {
+  endsWith,
+  honorific,
+  includes,
+  removePrefix,
+  removeSuffix,
+  replaceAll,
+  startsWith,
+  trimAll,
+  collapseWhitespace,
+  ordinalSuffix,
+} from "tweakr";
+
+console.log(endsWith("Hello World", "World")); // true
+console.log(honorific("John", "Mr.")); // "Mr. John"
+console.log(includes("TypeScript", "Script")); // true
+console.log(removePrefix("unhappy", "un")); // "happy"
+console.log(removeSuffix("running", "ing")); // "run"
+console.log(replaceAll("foo bar foo", "foo", "baz")); // "baz bar baz"
+console.log(startsWith("OpenAI", "Open")); // true
+console.log(trimAll("   spaced out   ")); // "spaced out"
+console.log(collapseWhitespace("This   is   spaced")); // "This is spaced"
+console.log(ordinalSuffix(1)); // "1st"
+console.log(ordinalSuffix(22)); // "22nd"
+console.log(ordinalSuffix(103)); // "103rd"
 ```
 
 ---
