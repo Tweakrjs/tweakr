@@ -1,6 +1,6 @@
 {
   "name": "tweakr",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A modern, modular utility library for JavaScript and TypeScript with functional, async, and immutable helpers.",
   "files": [
     "dist",
@@ -31,6 +31,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "docs": "typedoc",
+    "deploy-docs": "gh-pages -d docs",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
     "test": "vitest run",
@@ -51,12 +52,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coxxanthony/tweakr.git"
+    "url": "https://github.com/Tweakrjs/tweakr.git"
   },
   "bugs": {
-    "url": "https://github.com/coxxanthony/tweakr/issues"
+    "url": "https://github.com/Tweakrjs/tweakr/issues"
   },
-  "homepage": "https://github.com/coxxanthony/tweakr#readme",
+  "homepage": "https://tweakrjs.github.io/tweakr/",
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
