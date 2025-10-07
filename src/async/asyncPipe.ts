@@ -1,3 +1,14 @@
+/**
+ * Represents a function that can be asynchronous or synchronous.
+ *
+ * @template I - Input type.
+ * @template O - Output type.
+ * @param input - The input value.
+ * @returns A value of type `O` or a `Promise` resolving to `O`.
+ *
+ * @category Async
+ * @since 1.0.0
+ */
 type AsyncFn<I = any, O = any> = (input: I) => Promise<O> | O;
 
 /**

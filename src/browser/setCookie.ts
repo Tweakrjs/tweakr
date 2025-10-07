@@ -1,45 +1,22 @@
 /**
+ * Options for configuring a cookie.
+ *
  * @interface CookieOptions
- * @description Options for configuring a browser cookie.
+ * @property {number} [days] - Number of days before the cookie expires (default: 7).
+ * @property {string} [path] - Cookie path (default: "/").
+ * @property {"Lax" | "Strict" | "None"} [sameSite] - Cookie `SameSite` attribute (default: "Lax").
+ * @property {boolean} [secure] - Whether the cookie should only be sent over HTTPS (default: false).
+ *
+ * @category Browser
+ * @since 1.1.0
  */
-interface CookieOptions {
-  /**
-   * @property {number} [days]
-   * @description The number of days until the cookie expires. If not provided,
-   * the cookie will typically be a session cookie (expires when the browser closes).
-   */
-  days?: number; // number of days before expiration
-
-  /**
-   * @property {string} [path]
-   * @description The path for which the cookie is valid. Defaults to the
-   * current document location.
-   */
-  path?: string;
-
-  /**
-   * @property {"Lax" | "Strict" | "None"} [sameSite]
-   * @description Controls whether the cookie is sent with cross-site requests,
-   * providing some protection against cross-site request forgery attacks.
-   * - "Lax": Sent with navigation requests, but not other cross-site requests.
-   * - "Strict": Only sent with requests originating from the same site.
-   * - "None": Sent with all requests, but requires the 'secure' attribute.
-   */
-  sameSite?: "Lax" | "Strict" | "None";
-
-  /**
-   * @property {boolean} [secure]
-   * @description Indicates that the cookie should only be sent over secure
-   * protocols (HTTPS). This attribute is required if `sameSite` is set to "None".
-   */
-  secure?: boolean;
-}
-interface CookieOptions {
-  days?: number; // number of days before expiration
+export interface CookieOptions {
+  days?: number;
   path?: string;
   sameSite?: "Lax" | "Strict" | "None";
   secure?: boolean;
 }
+
 /**
  * Sets a cookie with optional expiration, path, SameSite, and secure attributes.
  *
@@ -54,11 +31,7 @@ interface CookieOptions {
  *
  * @param name - The name of the cookie.
  * @param value - The value to store in the cookie.
- * @param options - Optional settings for the cookie:
- *   - `days`: Number of days before the cookie expires (default: 7).
- *   - `path`: Cookie path (default: "/").
- *   - `sameSite`: Cookie `SameSite` attribute (`"Lax" | "Strict" | "None"`, default: `"Lax"`).
- *   - `secure`: Whether the cookie should only be sent over HTTPS (default: `false`).
+ * @param options - Optional settings for the cookie.
  *
  * @category Browser
  * @since 1.1.0
