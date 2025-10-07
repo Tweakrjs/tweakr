@@ -1,0 +1,6 @@
+# Enforce LF in the repo for all text files
+* text=auto
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
