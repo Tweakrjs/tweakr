@@ -23,7 +23,7 @@ const HONORIFIC_SUFFIXES_SORTED = [...HONORIFIC_SUFFIXES].sort(
  * @param str - The string to remove the suffix from.
  * @returns The string without the honorific suffix.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

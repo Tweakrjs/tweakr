@@ -10,7 +10,7 @@
  * @param numbers - Array of numbers to sum.
  * @returns The total sum of the numbers.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function sum(numbers: number[]): number {

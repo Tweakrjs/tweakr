@@ -11,7 +11,7 @@
  * @param b - The array containing values to exclude.
  * @returns A new array containing elements from `a` that are not found in `b`.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function difference<T>(a: T[], b: T[]): T[] {

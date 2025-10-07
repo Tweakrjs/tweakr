@@ -5,7 +5,7 @@
  * @param count - The count to determine singular or plural form.
  * @returns The appropriately pluralized word.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

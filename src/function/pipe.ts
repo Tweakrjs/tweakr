@@ -14,7 +14,7 @@
  * @param fns - Functions to pipe, applied from left to right.
  * @returns A function that represents the pipelined composition.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function pipe(...fns: Function[]) {

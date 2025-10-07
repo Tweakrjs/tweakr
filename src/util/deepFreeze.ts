@@ -4,7 +4,7 @@
  * This function ensures that an object, including all nested objects,
  * cannot be modified. It safely handles circular references using a WeakSet.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @template T - The type of the object to freeze.

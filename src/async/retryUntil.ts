@@ -27,7 +27,7 @@
  * @param delay - Delay in milliseconds between retries. Defaults to `100`.
  * @returns A promise that resolves to the first result satisfying the condition, or the last result if none satisfy.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export async function retryUntil<T>(

@@ -9,7 +9,7 @@
  * callback(); // does nothing
  * ```
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function noop() {}

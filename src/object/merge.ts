@@ -13,7 +13,7 @@
  * @param b - The second object.
  * @returns A new object containing all keys from `a` and `b`.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function merge<T extends object, U extends object>(a: T, b: U): T & U {

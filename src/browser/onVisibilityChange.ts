@@ -14,7 +14,7 @@
  *
  * @param callback - Function to call with `true` when page is visible, `false` when hidden.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function onVisibilityChange(callback: (visible: boolean) => void): void {

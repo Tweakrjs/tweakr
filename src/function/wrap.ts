@@ -20,7 +20,7 @@
  * @param wrapper - A function that receives the original function and arguments, can modify behavior or result.
  * @returns A new function wrapped with the provided wrapper.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function wrap<T extends (...args: any[]) => any>(

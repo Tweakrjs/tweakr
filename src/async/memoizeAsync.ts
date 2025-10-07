@@ -27,7 +27,7 @@ function stableStringify(obj: any): string {
  * @param fn - The asynchronous function to memoize.
  * @returns A memoized version of the input async function.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export function memoizeAsync<T extends (...args: any[]) => Promise<any>>(

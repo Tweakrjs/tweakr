@@ -12,7 +12,7 @@
  *
  * @param fn - The function to defer.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function defer(fn: Function) {

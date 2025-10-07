@@ -4,7 +4,7 @@
  * @param str - The input string.
  * @returns The string in title case.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

@@ -5,7 +5,7 @@
  * @param search - The search string to match at the start of the string.
  * @returns `true` if the string starts with the search string (case-insensitive), otherwise `false`.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

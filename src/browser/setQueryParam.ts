@@ -10,7 +10,7 @@
  * @param key - The name of the query parameter.
  * @param value - The value to set for the query parameter.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function setQueryParam(key: string, value: string): void {

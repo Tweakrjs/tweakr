@@ -4,7 +4,7 @@
  * @param str - The HTML-encoded string to decode.
  * @returns The decoded string with HTML entities replaced by their characters.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

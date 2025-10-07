@@ -14,7 +14,7 @@
  * @param separator - The string to separate each element. Defaults to a comma (",").
  * @returns A string with all array elements joined by the separator.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function join<T>(array: T[], separator = ","): string {

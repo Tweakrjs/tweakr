@@ -13,7 +13,7 @@
  * @returns The `n`-th Fibonacci number.
  * @throws Will throw an error if `n` is negative.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 const memoCache: Record<string, number> = {};

@@ -12,7 +12,7 @@
  * @param decimals - Number of decimal places (default `2`).
  * @returns The rounded number.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function toFixedNumber(value: number, decimals = 2): number {

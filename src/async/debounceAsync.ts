@@ -24,7 +24,7 @@
  * @param delay - The number of milliseconds to delay execution.
  * @returns A debounced async function with a `.cancel()` method to manually cancel the pending call.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export function debounceAsync<T extends (...args: any[]) => Promise<any>>(

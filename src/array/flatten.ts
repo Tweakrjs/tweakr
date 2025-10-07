@@ -15,7 +15,7 @@
  * @param array - The array to flatten one level deep.
  * @returns A new array with one level of nesting removed.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function flatten<T>(array: (T | T[])[]): T[] {

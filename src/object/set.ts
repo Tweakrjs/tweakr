@@ -12,7 +12,7 @@
  * @param path - Dot-separated string path where the value should be set.
  * @param value - The value to set at the specified path.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function set(obj: any, path: string, value: any): void {

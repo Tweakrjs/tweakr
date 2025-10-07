@@ -11,7 +11,7 @@
  * @param n - The number to check.
  * @returns `true` if `n` is positive, otherwise `false`.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function isPositive(n: number): boolean {

@@ -15,7 +15,7 @@
  * @param end - The index before which to end extraction. If omitted, extracts through the end of the array.
  * @returns A new array containing the extracted elements.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function slice<T>(array: T[], start = 0, end?: number): T[] {

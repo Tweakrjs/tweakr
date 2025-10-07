@@ -16,7 +16,7 @@
  * @param arity - The number of arguments `fn` expects (defaults to `fn.length`).
  * @returns A curried version of the function.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function curry(fn: Function, arity = fn.length): any {

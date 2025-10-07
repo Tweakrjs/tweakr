@@ -6,7 +6,7 @@
  * @param suffix - The string to append if truncation occurs (default: "…").
  * @returns The truncated string with suffix if truncated.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

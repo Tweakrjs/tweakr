@@ -17,7 +17,7 @@
  * @param iteratee - The function invoked per element to generate the key for comparison.
  * @returns A new array containing unique elements based on the computed key.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function uniqBy<T>(array: T[], iteratee: (item: T) => any): T[] {

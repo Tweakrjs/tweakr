@@ -1,10 +1,22 @@
 {
   "entryPoints": ["src/index.ts"],
   "out": "docs",
+  "name": "Tweakr",
   "tsconfig": "tsconfig.json",
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeExternals": true,
   "categorizeByGroup": true,
-  "readme": "none"
+  "theme": "typedoc-github-theme",
+  "readme": "none",
+  "categoryOrder": [
+    "Array",
+    "Async",
+    "Function",
+    "String",
+    "Number",
+    "Object",
+    "Browser",
+    "Util"
+  ]
 }

@@ -14,7 +14,7 @@
  * @returns The interpolated value.
  * @throws Will throw an error if any argument is not a finite number.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function lerp(start: number, end: number, t: number): number {

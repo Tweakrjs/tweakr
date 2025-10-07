@@ -4,7 +4,7 @@
  * @param length - The desired length of the output string.
  * @returns A random string containing uppercase letters, lowercase letters, and digits.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

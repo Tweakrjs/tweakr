@@ -6,7 +6,7 @@
  * @param str - The input string.
  * @returns The input string with the first character converted to uppercase.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  * @example
  * ```ts

@@ -23,7 +23,7 @@
  *
  * @throws Will throw the last encountered error after exhausting all retries.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export async function retry<T>(

@@ -11,7 +11,7 @@
  * @param size - The maximum size of each chunk. Defaults to `1`.
  * @returns A new array containing sub-arrays (chunks) of the specified size.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function chunk<T>(array: T[], size: number = 1): T[][] {

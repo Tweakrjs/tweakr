@@ -14,7 +14,7 @@
  * @param values - The array of values to exclude from the new array.
  * @returns A new array excluding all specified values.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function pullAll<T>(array: T[], values: T[]): T[] {

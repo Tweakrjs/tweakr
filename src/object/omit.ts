@@ -12,7 +12,7 @@
  * @param keys - An array of keys to omit from the object.
  * @returns A new object without the specified keys.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function omit<T extends object, K extends keyof T>(

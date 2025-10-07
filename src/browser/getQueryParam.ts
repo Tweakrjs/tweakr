@@ -10,7 +10,7 @@
  * @param key - The name of the query parameter to retrieve.
  * @returns The value of the parameter as a string, or `null` if not present.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function getQueryParam(key: string): string | null {

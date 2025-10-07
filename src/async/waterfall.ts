@@ -19,7 +19,7 @@
  * @param initial - The initial input value for the first task.
  * @returns A promise resolving to the final task’s result.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export async function waterfall<T>(

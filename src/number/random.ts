@@ -12,7 +12,7 @@
  * @param integer - Whether to return an integer (default `false`).
  * @returns A random number within the specified range.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function random(min: number, max: number, integer = false): number {

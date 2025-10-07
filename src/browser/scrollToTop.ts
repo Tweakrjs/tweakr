@@ -16,7 +16,7 @@
  * @param container - The scroll container (`window` or an `HTMLElement`). Defaults to `window`.
  * @param behavior - Scroll behavior: `"auto"` or `"smooth"`. Defaults to `"smooth"`.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function scrollToTop(

@@ -18,7 +18,7 @@
  * @param message - Optional timeout error message (default: "Timeout").
  * @returns A promise that resolves or rejects like the original promise, or rejects on timeout.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export function timeout<T>(

@@ -13,7 +13,7 @@
  * @param array - The array to query.
  * @returns The last element of the array, or `undefined` if the array is empty.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function last<T>(array: T[]): T | undefined {

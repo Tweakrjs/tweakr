@@ -14,7 +14,7 @@
  * @param fn - A function that transforms each value of the object.
  * @returns A new object with transformed values.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function mapValues<T extends object, U>(

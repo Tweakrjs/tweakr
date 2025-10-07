@@ -4,7 +4,7 @@
  * @param str - The input string.
  * @returns A new string with all spaces, tabs, and line breaks removed.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

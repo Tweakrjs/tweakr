@@ -18,7 +18,7 @@
  * @param concurrency - The maximum number of concurrent async operations. Defaults to `Infinity`.
  * @returns A promise that resolves to an array of mapped results.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export async function mapAsync<T, R>(

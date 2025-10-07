@@ -16,7 +16,7 @@
  * @param data - The file data as a `Blob` or a string URL.
  * @param filename - The desired name of the downloaded file.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function downloadFile(data: Blob | string, filename: string): void {

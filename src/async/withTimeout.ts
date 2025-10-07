@@ -20,7 +20,7 @@
  * @param ms - Timeout duration in milliseconds.
  * @returns A new function that returns a promise which rejects if the timeout is exceeded.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export function withTimeout<T extends (...args: any[]) => Promise<any>>(

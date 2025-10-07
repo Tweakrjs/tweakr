@@ -13,7 +13,7 @@
  * @param predicate - A function that receives each value and key, returning `true` to keep the pair.
  * @returns A new object containing only the key-value pairs where the value passed the predicate.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function filterValues<T extends object>(

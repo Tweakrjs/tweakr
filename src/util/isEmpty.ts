@@ -9,7 +9,7 @@
  *
  * Numbers, booleans, functions, and other non-collection types are considered not empty.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @param value - The value to check for emptiness.

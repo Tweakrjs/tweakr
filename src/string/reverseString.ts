@@ -4,7 +4,7 @@
  * @param str - The string to reverse.
  * @returns The reversed string.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

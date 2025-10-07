@@ -14,7 +14,7 @@
  * @param n - The number of elements to drop from the end. Defaults to `1`.
  * @returns A new array excluding the dropped elements from the end.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function dropRight<T>(array: T[], n = 1): T[] {

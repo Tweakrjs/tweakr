@@ -5,7 +5,7 @@
  * @param search - The substring to search for.
  * @returns `true` if `search` is found in `str` (case-insensitive), otherwise `false`.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

@@ -11,7 +11,7 @@
  * @param num - The number to format.
  * @returns The number with its ordinal suffix as a string.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

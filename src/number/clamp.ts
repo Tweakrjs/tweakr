@@ -13,7 +13,7 @@
  * @param max - Maximum allowed value.
  * @returns The clamped number within `[min, max]`.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function clamp(value: number, min: number, max: number): number {

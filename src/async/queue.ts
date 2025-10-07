@@ -20,7 +20,7 @@
  * @param concurrency - Maximum number of tasks running at once (default: 1).
  * @returns An object with methods to add tasks, and check queue state.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  *
  * @remarks

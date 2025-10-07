@@ -14,7 +14,7 @@
  * @param b - The second array.
  * @returns A new array containing the elements found in both arrays.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function intersection<T>(a: T[], b: T[]): T[] {

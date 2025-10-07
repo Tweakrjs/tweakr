@@ -13,7 +13,7 @@
  * @param limit - Minimum time in milliseconds between calls (default: 300ms).
  * @returns A throttled version of `fn`.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function throttle<T extends (...args: any[]) => void>(

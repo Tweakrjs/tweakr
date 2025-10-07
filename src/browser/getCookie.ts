@@ -11,7 +11,7 @@
  * @param name - The name of the cookie to retrieve.
  * @returns The cookie value as a string, or `null` if not found.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function getCookie(name: string): string | null {

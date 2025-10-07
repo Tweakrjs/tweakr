@@ -10,7 +10,7 @@
  * @param n - The number to check.
  * @returns `true` if `n` is odd, otherwise `false`.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function isOdd(n: number): boolean {

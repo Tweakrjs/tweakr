@@ -13,7 +13,7 @@
  * @param array - The array to reverse.
  * @returns A new array with the elements reversed. The original array is not modified.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function reverse<T>(array: T[]): T[] {

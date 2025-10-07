@@ -17,7 +17,7 @@
  * @param seen - Internal WeakMap to handle circular references (do not provide manually).
  * @returns `true` if the values are deeply equal, otherwise `false`.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function deepEqual(a: any, b: any, seen = new WeakMap()): boolean {

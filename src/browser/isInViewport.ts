@@ -12,7 +12,7 @@
  * @param element - The DOM element to check.
  * @returns `true` if the element is completely visible in the viewport, `false` otherwise.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function isInViewport(element: Element): boolean {

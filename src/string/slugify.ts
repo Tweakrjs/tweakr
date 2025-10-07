@@ -5,7 +5,7 @@
  * @returns The slugified version of the string, lowercase with words
  *          separated by hyphens and special characters removed.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

@@ -11,7 +11,7 @@
  *
  * @returns A Promise that resolves on the next microtask.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function yieldToNext() {

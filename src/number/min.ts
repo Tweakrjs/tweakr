@@ -10,7 +10,7 @@
  * @param numbers - Array of numbers to evaluate.
  * @returns The smallest number in the array.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function min(numbers: number[]): number {

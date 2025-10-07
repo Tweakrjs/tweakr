@@ -14,7 +14,7 @@
  * @param fn - The function to memoize.
  * @returns A new function that caches results of `fn`.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function memoize<T extends (...args: any[]) => any>(fn: T) {

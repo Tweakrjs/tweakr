@@ -16,7 +16,7 @@
  * @param end - The end position (exclusive). Defaults to the array length.
  * @returns A new array with the specified range filled with the given value.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function fill<T>(

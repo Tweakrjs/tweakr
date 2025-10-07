@@ -5,7 +5,7 @@
  * @param prefix - The prefix to remove.
  * @returns The string without the prefix if it was present; otherwise, returns the original string.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

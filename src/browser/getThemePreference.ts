@@ -12,7 +12,7 @@
  *
  * @returns `"light"` if the user prefers a light theme, `"dark"` if dark.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function getThemePreference(): "light" | "dark" {

@@ -17,7 +17,7 @@
  * @param array - The array to filter for unique values.
  * @returns A new array containing only unique elements.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function uniq<T>(array: T[]): T[] {

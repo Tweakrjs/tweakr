@@ -17,7 +17,7 @@
  * @param hash - Internal WeakMap to handle circular references (do not provide manually).
  * @returns A deep-cloned copy of the input object.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function cloneDeep<T>(obj: T, hash = new WeakMap()): T {

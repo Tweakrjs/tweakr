@@ -17,7 +17,7 @@
  * @param promise - The promise to wrap with cancellation capability.
  * @returns An object with the wrapped `promise` and a `cancel` function.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export function withCancel<T>(promise: Promise<T>) {

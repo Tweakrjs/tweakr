@@ -19,7 +19,7 @@
  *
  * @throws Will throw an error if `container` is neither `Window` nor `HTMLElement`.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function scrollToBottom(

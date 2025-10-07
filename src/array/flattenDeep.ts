@@ -16,7 +16,7 @@
  * @param depth - The maximum depth to flatten. Defaults to `Infinity`.
  * @returns A new flattened array up to the specified depth.
  *
- * @category Array
+ * @group Array
  * @since 1.1.0
  */
 export function flattenDeep<T>(array: any[], depth: number = Infinity): T[] {

@@ -6,7 +6,7 @@
  * @param replace - The string to replace matches with.
  * @returns A new string with all matches replaced.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

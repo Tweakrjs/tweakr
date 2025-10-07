@@ -13,7 +13,7 @@
  * @param options - Optional focus options (`preventScroll`).
  * @returns `true` if the element was found and focused, `false` otherwise.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function focusElement(

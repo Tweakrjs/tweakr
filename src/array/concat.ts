@@ -12,7 +12,7 @@
  * @param arrays - One or more arrays or values to concatenate.
  * @returns A new array containing all provided elements in order.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function concat<T>(...arrays: (T | T[])[]): T[] {

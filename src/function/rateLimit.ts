@@ -14,7 +14,7 @@
  * @param interval - Minimum time in milliseconds between calls (default: 1000ms).
  * @returns A rate-limited version of `fn`.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function rateLimit(fn: Function, interval = 1000) {

@@ -7,7 +7,7 @@
  * @property {"Lax" | "Strict" | "None"} [sameSite] - Cookie `SameSite` attribute (default: "Lax").
  * @property {boolean} [secure] - Whether the cookie should only be sent over HTTPS (default: false).
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export interface CookieOptions {
@@ -33,7 +33,7 @@ export interface CookieOptions {
  * @param value - The value to store in the cookie.
  * @param options - Optional settings for the cookie.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function setCookie(

@@ -6,7 +6,7 @@
  * @param char - The character to use for padding. Defaults to a space.
  * @returns The padded string.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

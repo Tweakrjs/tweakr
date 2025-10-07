@@ -3,7 +3,7 @@
  *
  * This can be used as a placeholder for async callbacks or default async functions.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @returns A promise that resolves to `void`.

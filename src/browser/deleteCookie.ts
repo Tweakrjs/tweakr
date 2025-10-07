@@ -9,7 +9,7 @@
  * @param name - The name of the cookie to delete.
  * @param path - Optional path of the cookie. Defaults to `'/'`.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function deleteCookie(name: string, path = "/"): void {

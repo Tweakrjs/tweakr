@@ -15,7 +15,7 @@
  *
  * @throws Will throw an error if copying fails.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export async function copyToClipboard(text: string): Promise<void> {

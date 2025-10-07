@@ -12,7 +12,7 @@
  * @param decimals - Number of decimal places (default `0`).
  * @returns The rounded number.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function round(value: number, decimals = 0): number {

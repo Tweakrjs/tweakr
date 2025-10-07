@@ -16,7 +16,7 @@
  * @param defaultValue - Value to return if the path is not found.
  * @returns The value at the specified path or the defaultValue if not found.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function get(obj: any, path: string, defaultValue?: any): any {

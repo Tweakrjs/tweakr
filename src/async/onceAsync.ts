@@ -20,7 +20,7 @@
  * @param fn - The asynchronous function to execute only once.
  * @returns A new function that runs `fn` once and caches the result.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export function onceAsync<T extends (...args: any[]) => Promise<any>>(fn: T) {

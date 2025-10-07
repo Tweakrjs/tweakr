@@ -13,7 +13,7 @@
  * @param n - Number of times to invoke the function.
  * @param fn - Function to execute, receives the current index as argument.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function times(n: number, fn: (index: number) => void) {

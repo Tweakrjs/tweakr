@@ -19,7 +19,7 @@
  * @param tasks - An array of functions returning promises.
  * @returns A promise that resolves to an array of task results.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export async function series<T>(tasks: (() => Promise<T>)[]): Promise<T[]> {

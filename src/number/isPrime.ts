@@ -11,7 +11,7 @@
  * @param n - The number to check.
  * @returns `true` if `n` is prime, otherwise `false`.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function isPrime(n: number): boolean {

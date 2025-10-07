@@ -14,7 +14,7 @@
  * @param source - The source object whose properties will be merged.
  * @returns A new object containing merged properties from both `target` and `source`.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function deepMerge<T extends object, U extends object>(

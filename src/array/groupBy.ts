@@ -20,7 +20,7 @@
  * @param keyFn - A function that returns the key used for grouping.
  * @returns An object where keys represent group identifiers and values are arrays of grouped elements.
  *
- * @category Array
+ * @group Array
  * @since 1.1.0
  */
 export function groupBy<T, K extends keyof any>(

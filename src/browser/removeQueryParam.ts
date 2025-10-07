@@ -9,7 +9,7 @@
  *
  * @param key - The name of the query parameter to remove.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function removeQueryParam(key: string): void {

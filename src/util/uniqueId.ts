@@ -5,7 +5,7 @@ let idCounter = 0;
  *
  * Each call increments an internal counter to ensure uniqueness within the runtime.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @param prefix - An optional string to prepend to the generated ID. Default is an empty string.

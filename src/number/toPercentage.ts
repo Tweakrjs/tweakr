@@ -13,7 +13,7 @@
  * @param decimals - Number of decimal places (default `2`).
  * @returns The percentage representation of `value` relative to `total`.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function toPercentage(

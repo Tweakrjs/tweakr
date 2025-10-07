@@ -15,7 +15,7 @@
  *   - log: whether to log the error to the console.
  * @returns A function that executes `fn` safely with fallback.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function tryCatch<T>(

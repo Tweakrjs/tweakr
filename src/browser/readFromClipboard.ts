@@ -18,7 +18,7 @@
  *
  * @throws Will throw an error if reading from the clipboard is not supported.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export async function readFromClipboard(): Promise<string> {

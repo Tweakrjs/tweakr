@@ -21,7 +21,7 @@
  * @param interval - Minimum time in milliseconds between function invocations.
  * @returns A throttled async function with the same signature as `fn`.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export function throttleAsync<T extends (...args: any[]) => Promise<any>>(

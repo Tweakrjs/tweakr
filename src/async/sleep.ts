@@ -13,7 +13,7 @@
  * @param ms - The number of milliseconds to sleep.
  * @returns A promise that resolves after the specified delay.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export function sleep(ms: number) {

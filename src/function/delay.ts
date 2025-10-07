@@ -10,7 +10,7 @@
  * @param ms - The number of milliseconds to delay.
  * @returns A promise that resolves after the delay.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function delay(ms: number) {

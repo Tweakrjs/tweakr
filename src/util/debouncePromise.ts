@@ -6,7 +6,7 @@
  * function is called within that period. All calls within the wait period
  * will resolve with the same result of the last invocation.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @template T - A function type that returns a Promise.

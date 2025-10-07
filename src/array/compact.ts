@@ -12,7 +12,7 @@
  * @param array - The array to filter.
  * @returns A new array with all falsey values removed.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function compact<T>(array: T[]): T[] {

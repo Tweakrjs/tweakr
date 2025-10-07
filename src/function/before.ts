@@ -15,7 +15,7 @@
  * @param fn - The function to invoke.
  * @returns A new function that calls `fn` until the call limit is reached.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function before(n: number, fn: (...args: any[]) => any) {

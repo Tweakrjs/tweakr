@@ -5,7 +5,7 @@
  * @param str - The input string.
  * @returns The normalized string with collapsed whitespace.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

@@ -11,7 +11,7 @@
  * @param fn - A function that expects a callback as its last argument `(err, result)`.
  * @returns A function that returns a Promise resolving with the result or rejecting with the error.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function promisify(fn: Function) {

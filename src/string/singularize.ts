@@ -4,7 +4,7 @@
  * @param word - The plural word to convert.
  * @returns The singular form of the word.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

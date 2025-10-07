@@ -12,7 +12,7 @@
  * @param value - The number to analyze.
  * @returns The count of decimal places.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function decimalPlaces(value: number): number {

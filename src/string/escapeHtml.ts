@@ -13,7 +13,7 @@ const ESC_MAP: Record<string, string> = {
  * @param str - The string to escape.
  * @returns The escaped string safe for HTML usage.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

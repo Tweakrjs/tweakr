@@ -13,7 +13,7 @@
  * @param fn - The function to invoke once.
  * @returns A new function that can only be called once.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function once<T extends (...args: any[]) => any>(fn: T) {

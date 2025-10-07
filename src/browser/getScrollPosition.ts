@@ -9,7 +9,7 @@
  *
  * @returns An object containing `x` (horizontal) and `y` (vertical) scroll coordinates.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function getScrollPosition(): { x: number; y: number } {

@@ -5,7 +5,7 @@
  * @param suffix - The suffix to remove.
  * @returns The string without the suffix if it was present; otherwise, returns the original string.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

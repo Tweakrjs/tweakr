@@ -13,7 +13,7 @@
  * @param array - The array to process.
  * @returns A new array containing all elements except the last one.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function initial<T>(array: T[]): T[] {

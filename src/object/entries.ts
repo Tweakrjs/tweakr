@@ -11,7 +11,7 @@
  * @param obj - The object to extract entries from.
  * @returns An array of key-value pairs from the object.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function entries<T extends object>(obj: T): [keyof T, T[keyof T]][] {

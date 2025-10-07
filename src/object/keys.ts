@@ -11,7 +11,7 @@
  * @param obj - The object whose keys will be retrieved.
  * @returns An array of the object's keys.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function keys<T extends object>(obj: T): (keyof T)[] {

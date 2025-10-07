@@ -13,7 +13,7 @@
  * @param fn - The function to call after `n` invocations.
  * @returns A new function that tracks the call count.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function after(n: number, fn: (...args: any[]) => any) {

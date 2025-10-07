@@ -13,7 +13,7 @@
  * @param delay - The number of milliseconds to delay (default: 300ms).
  * @returns A debounced function.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function debounce<T extends (...args: any[]) => void>(

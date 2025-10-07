@@ -6,7 +6,7 @@
  * @param input - The input value.
  * @returns A value of type `O` or a `Promise` resolving to `O`.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 type AsyncFn<I = any, O = any> = (input: I) => Promise<O> | O;
@@ -33,7 +33,7 @@ type AsyncFn<I = any, O = any> = (input: I) => Promise<O> | O;
  * @param fns - Functions to pipe, executed from left to right.
  * @returns A new function that represents the asynchronous pipeline.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export function asyncPipe<Input, Output>(

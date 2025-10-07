@@ -11,7 +11,7 @@
  * @param fn - The function to wrap.
  * @returns A new function that only takes the first argument.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function unary<T extends (...args: any[]) => any>(fn: T) {

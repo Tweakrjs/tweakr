@@ -11,7 +11,7 @@
  *
  * @returns A string representing the user's language, e.g., `"en-US"`.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function getUserLanguage(): string {

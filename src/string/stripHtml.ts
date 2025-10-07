@@ -4,7 +4,7 @@
  * @param str - The input string containing HTML.
  * @returns A new string with all HTML tags removed.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

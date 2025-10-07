@@ -36,7 +36,7 @@ export interface WaitForOptions {
  *
  * @throws Will throw an error if the condition is not met within the timeout.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export async function waitFor(

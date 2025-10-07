@@ -11,7 +11,7 @@
  * @param n - The value to check.
  * @returns `true` if `n` is a finite number, otherwise `false`.
  *
- * @category Number
+ * @group Number
  * @since 1.1.0
  */
 export function isFiniteNumber(n: unknown): n is number {

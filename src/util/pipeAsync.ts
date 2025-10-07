@@ -5,7 +5,7 @@
  * to the next. Supports both synchronous and asynchronous functions, but the
  * pipeline always returns a Promise.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @template T - The type of the initial input value.

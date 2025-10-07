@@ -16,7 +16,7 @@
  * @param predicate - An async function called for each element. Should resolve to `true` to keep the element.
  * @returns A promise that resolves to a new array containing the filtered elements.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export async function filterAsync<T>(

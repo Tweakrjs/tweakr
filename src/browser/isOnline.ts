@@ -12,7 +12,7 @@
  *
  * @returns `true` if the browser is online, `false` otherwise.
  *
- * @category Browser
+ * @group Browser
  * @since 1.1.0
  */
 export function isOnline(): boolean {

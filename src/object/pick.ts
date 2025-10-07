@@ -12,7 +12,7 @@
  * @param keys - An array of keys to include in the new object.
  * @returns A new object with only the specified keys.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function pick<T extends object, K extends keyof T>(

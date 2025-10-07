@@ -13,7 +13,7 @@
  * @param obj - The object whose keys and values will be inverted.
  * @returns A new object with keys and values swapped.
  *
- * @category Object
+ * @group Object
  * @since 1.1.0
  */
 export function invert(

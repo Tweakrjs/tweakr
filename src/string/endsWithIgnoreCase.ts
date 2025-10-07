@@ -5,7 +5,7 @@
  * @param search - The string to test at the end of `str`.
  * @returns `true` if `str` ends with `search` (case-insensitive), otherwise `false`.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

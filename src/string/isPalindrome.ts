@@ -6,7 +6,7 @@
  * @param str - The string to check.
  * @returns `true` if the string is a palindrome, `false` otherwise.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

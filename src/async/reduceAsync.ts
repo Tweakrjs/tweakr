@@ -21,7 +21,7 @@
  * @param initial - The initial accumulator value.
  * @returns A promise that resolves to the final accumulated result.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export async function reduceAsync<T, R>(

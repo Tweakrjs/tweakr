@@ -23,7 +23,7 @@
  *
  * @throws If any task rejects, the error is propagated immediately.
  *
- * @category Async
+ * @group Async
  * @since 1.0.0
  */
 export async function parallelLimit<T>(

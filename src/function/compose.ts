@@ -14,7 +14,7 @@
  * @param fns - Functions to compose, applied from right to left.
  * @returns A function that represents the composition of the input functions.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function compose(...fns: Function[]) {

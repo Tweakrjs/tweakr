@@ -5,7 +5,7 @@
  * @param times - Number of times to repeat the string. Must be a non-negative integer.
  * @returns The concatenated string repeated `times` times.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

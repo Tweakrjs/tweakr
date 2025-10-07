@@ -4,7 +4,7 @@
  * This is a simple utility function that can be useful in functional programming
  * contexts or when a placeholder function is needed.
  *
- * @category Util
+ * @group Util
  * @since 1.1.0
  *
  * @template T - The type of the input value.

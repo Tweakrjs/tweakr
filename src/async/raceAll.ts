@@ -16,7 +16,7 @@
  * @param tasks - An array of functions returning promises.
  * @returns A promise that resolves or rejects with the first task to settle.
  *
- * @category Async
+ * @group Async
  * @since 1.1.0
  */
 export function raceAll<T>(tasks: (() => Promise<T>)[]): Promise<T> {

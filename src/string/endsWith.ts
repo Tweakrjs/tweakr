@@ -5,7 +5,7 @@
  * @param suffix - The suffix to test.
  * @returns `true` if `str` ends with `suffix`, otherwise `false`.
  *
- * @category String
+ * @group String
  * @since 1.1.0
  *
  * @example

@@ -14,7 +14,7 @@
  * @param n - The number of elements to drop from the start. Defaults to `1`.
  * @returns A new array excluding the dropped elements.
  *
- * @category Array
+ * @group Array
  * @since 1.0.0
  */
 export function drop<T>(array: T[], n = 1): T[] {

@@ -12,7 +12,7 @@
  * @param presetArgs - Arguments to pre-fill for `fn`.
  * @returns A new function that accepts the remaining arguments.
  *
- * @category Function
+ * @group Function
  * @since 1.1.0
  */
 export function partial(fn: Function, ...presetArgs: any[]) {
