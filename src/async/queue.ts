@@ -20,12 +20,14 @@
  * @param concurrency - Maximum number of tasks running at once (default: 1).
  * @returns An object with methods to add tasks, and check queue state.
  *
- * @method add - Adds a new async task to the queue.
- * @method size - Returns the number of pending tasks.
- * @method running - Returns the number of currently active tasks.
- *
  * @category Async
  * @since 1.1.0
+ *
+ * @remarks
+ * The returned object has the following methods:
+ * - `add(task: () => Promise<void>)` – Adds a new async task to the queue.
+ * - `size(): number` – Returns the number of pending tasks.
+ * - `running(): number` – Returns the number of currently active tasks.
  */
 export function queue(concurrency = 1) {
   const tasks: (() => Promise<void>)[] = [];
