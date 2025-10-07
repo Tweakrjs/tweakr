@@ -28,3 +28,8 @@ export * from "./dropWhile";
 export * from "./takeWhile";
 export * from "./compactBy";
 export * from "./removeIndex";
+export * from "./pullAll";
+export * from "./reverse";
+export * from "./slice";
+export * from "./uniq";
+export * from "./uniqBy";
