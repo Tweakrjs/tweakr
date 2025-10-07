@@ -1,23 +1,25 @@
+const memoCache: Record<string, number> = {};
 /**
  * Computes the `n`-th Fibonacci number using memoization.
  *
+ * Memoization stores previously calculated Fibonacci numbers in an internal cache
+ * to improve performance for repeated calls.
+ *
  * @example
  * ```ts
- * fibonacci(0); // returns 0
- * fibonacci(1); // returns 1
- * fibonacci(5); // returns 5
- * fibonacci(10); // returns 55
+ * fibonacci(0); // 0
+ * fibonacci(1); // 1
+ * fibonacci(5); // 5
+ * fibonacci(10); // 55
  * ```
  *
- * @param n - Non-negative integer representing the position in the Fibonacci sequence.
+ * @param n - The non-negative integer representing the position in the Fibonacci sequence.
  * @returns The `n`-th Fibonacci number.
- * @throws Will throw an error if `n` is negative.
+ * @throws {Error} If `n` is negative.
  *
  * @group Number
  * @since 1.1.0
  */
-const memoCache: Record<string, number> = {};
-
 export function fibonacci(n: number): number {
   if (n < 0) throw new Error("Fibonacci not defined for negative numbers");
   if (n === 0) return 0;

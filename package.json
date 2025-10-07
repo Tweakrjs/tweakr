@@ -30,7 +30,7 @@
   "module": "dist/tweakr.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "docs": "typedoc",
+    "docs": "typedoc src --plugin typedoc-github-theme",
     "deploy-docs": "gh-pages -d docs",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
