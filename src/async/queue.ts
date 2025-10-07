@@ -1,19 +1,53 @@
+/**
+ * Creates an async task queue with controlled concurrency.
+ *
+ * Tasks are executed in FIFO order, respecting the concurrency limit.
+ * When a task completes, the next one in the queue starts automatically.
+ *
+ * @example
+ * ```ts
+ * const q = queue(2);
+ *
+ * for (let i = 0; i < 5; i++) {
+ *   q.add(async () => {
+ *     console.log("Task", i, "started");
+ *     await new Promise(r => setTimeout(r, 100));
+ *     console.log("Task", i, "done");
+ *   });
+ * }
+ * ```
+ *
+ * @param concurrency - Maximum number of tasks running at once (default: 1).
+ * @returns An object with methods to add tasks, and check queue state.
+ *
+ * @group Async
+ * @since 1.1.0
+ *
+ * @remarks
+ * The returned object has the following methods:
+ * - `add(task: () => Promise<void>)` – Adds a new async task to the queue.
+ * - `size(): number` – Returns the number of pending tasks.
+ * - `running(): number` – Returns the number of currently active tasks.
+ */
 export function queue(concurrency = 1) {
   const tasks: (() => Promise<void>)[] = [];
   let running = 0;
 
-  async function run() {
-    if (running >= concurrency || tasks.length === 0) return;
-    const task = tasks.shift();
-    if (!task) return;
-    running++;
-    try {
-      await task();
-    } finally {
-      running--;
-      run();
+  const run = async () => {
+    while (running < concurrency && tasks.length > 0) {
+      const task = tasks.shift();
+      if (!task) break;
+      running++;
+      task()
+        .catch(() => {
+          // Errors are handled by the user in their own task
+        })
+        .finally(() => {
+          running--;
+          run(); // continue next task automatically
+        });
     }
-  }
+  };
 
   return {
     add: (task: () => Promise<void>) => {
@@ -21,5 +55,6 @@ export function queue(concurrency = 1) {
       run();
     },
     size: () => tasks.length,
+    running: () => running,
   };
 }

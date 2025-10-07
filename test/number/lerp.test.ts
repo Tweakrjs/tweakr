@@ -1,9 +1,19 @@
 import { lerp } from "../../src/number/lerp";
 
 describe("lerp", () => {
-  it("should linearly interpolate between numbers", () => {
-    expect(lerp(0, 10, 0.5)).toBe(5);
-    expect(lerp(5, 15, 0)).toBe(5);
-    expect(lerp(5, 15, 1)).toBe(15);
+  it.each([
+    [0, 10, 0.5, 5],
+    [5, 15, 0, 5],
+    [5, 15, 1, 15],
+    [-10, 10, 0.5, 0],
+    [0, 100, 0.25, 25],
+  ])("lerp(%f, %f, %f) = %f", (start, end, t, expected) => {
+    expect(lerp(start, end, t)).toBe(expected);
+  });
+
+  it("should throw for non-finite numbers", () => {
+    expect(() => lerp(NaN, 0, 0.5)).toThrow();
+    expect(() => lerp(0, Infinity, 0.5)).toThrow();
+    expect(() => lerp(0, 10, -Infinity)).toThrow();
   });
 });
