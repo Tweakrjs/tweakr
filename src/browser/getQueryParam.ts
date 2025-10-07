@@ -2,6 +2,7 @@
  * Retrieves the value of a query parameter from the current URL.
  *
  * @example
+ * ```ts
  * // URL: https://example.com?page=2
  * const page = getQueryParam("page");
  * console.log(page); // "2"

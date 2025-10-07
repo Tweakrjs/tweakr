@@ -2,6 +2,7 @@
  * Sets or updates a query parameter in the current URL without reloading the page.
  *
  * @example
+ * ```ts
  * // URL: https://example.com
  * setQueryParam("page", "2");
  * // URL becomes: https://example.com?page=2

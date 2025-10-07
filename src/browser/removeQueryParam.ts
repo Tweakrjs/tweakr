@@ -2,6 +2,7 @@
  * Removes a query parameter from the current URL without reloading the page.
  *
  * @example
+ * ```ts
  * // URL: https://example.com?page=2&sort=asc
  * removeQueryParam("sort");
  * // URL becomes: https://example.com?page=2
