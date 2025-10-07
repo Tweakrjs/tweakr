@@ -1,3 +1,32 @@
+/**
+ * Creates a debounced version of an asynchronous function.
+ *
+ * The returned function delays invoking the provided async function until
+ * after `delay` milliseconds have elapsed since the last time it was called.
+ *
+ * If the function is called again before the delay expires, the previous invocation
+ * is canceled — including its pending promise — ensuring only the latest call runs.
+ *
+ * @example
+ * ```ts
+ * const fetchData = async (q: string) => `Result for ${q}`;
+ * const debouncedFetch = debounceAsync(fetchData, 300);
+ *
+ * debouncedFetch("apple");
+ * debouncedFetch("banana"); // cancels "apple"
+ *
+ * await debouncedFetch("cherry");
+ * // → "Result for cherry"
+ * ```
+ *
+ * @typeParam T - The async function type being debounced.
+ * @param fn - The asynchronous function to debounce.
+ * @param delay - The number of milliseconds to delay execution.
+ * @returns A debounced async function with a `.cancel()` method to manually cancel the pending call.
+ *
+ * @category Async
+ * @since 1.0.0
+ */
 export function debounceAsync<T extends (...args: any[]) => Promise<any>>(
   fn: T,
   delay: number
