@@ -4,7 +4,8 @@
 
 **Tweakr** is a modern, lightweight utility library for JavaScript and TypeScript. It provides **functional, async, array, number, object, string (lang), and browser helpers**, designed to be **modular, tree-shakable, and TypeScript-ready**.
 
-💡 **See the latest releases:** [RELEASE.md](./RELEASE.md)
+💡 **See the latest releases:** [RELEASE.md](./RELEASE.md)  
+🌐 **Docs / Site:** [https://tweakrjs.github.io/tweakr/](https://tweakrjs.github.io/tweakr/)
 
 ---
 
