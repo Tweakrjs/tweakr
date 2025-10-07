@@ -1,10 +1,41 @@
-interface CookieOptions {
-  days?: number; // number of days before expiration
+/**
+ * Options for configuring a cookie.
+ *
+ * @interface CookieOptions
+ * @property {number} [days] - Number of days before the cookie expires (default: 7).
+ * @property {string} [path] - Cookie path (default: "/").
+ * @property {"Lax" | "Strict" | "None"} [sameSite] - Cookie `SameSite` attribute (default: "Lax").
+ * @property {boolean} [secure] - Whether the cookie should only be sent over HTTPS (default: false).
+ *
+ * @group Browser
+ * @since 1.1.0
+ */
+export interface CookieOptions {
+  days?: number;
   path?: string;
   sameSite?: "Lax" | "Strict" | "None";
   secure?: boolean;
 }
 
+/**
+ * Sets a cookie with optional expiration, path, SameSite, and secure attributes.
+ *
+ * @example
+ * ```ts
+ * // Set a cookie that expires in 7 days
+ * setCookie("sessionId", "abc123");
+ *
+ * // Set a secure cookie for the "/app" path
+ * setCookie("authToken", "xyz789", { days: 14, path: "/app", secure: true });
+ * ```
+ *
+ * @param name - The name of the cookie.
+ * @param value - The value to store in the cookie.
+ * @param options - Optional settings for the cookie.
+ *
+ * @group Browser
+ * @since 1.1.0
+ */
 export function setCookie(
   name: string,
   value: string,

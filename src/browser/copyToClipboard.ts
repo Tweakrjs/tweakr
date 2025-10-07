@@ -1,3 +1,23 @@
+/**
+ * Copies the provided text to the system clipboard.
+ *
+ * Uses the modern `navigator.clipboard.writeText` API when available,
+ * with a fallback using a hidden textarea for older browsers.
+ *
+ * @example
+ * ```ts
+ * await copyToClipboard("Hello World");
+ * console.log("Text copied to clipboard!");
+ * ```
+ *
+ * @param text - The text string to copy to the clipboard.
+ * @returns A promise that resolves when the text is successfully copied.
+ *
+ * @throws Will throw an error if copying fails.
+ *
+ * @group Browser
+ * @since 1.1.0
+ */
 export async function copyToClipboard(text: string): Promise<void> {
   if (!text) return;
 

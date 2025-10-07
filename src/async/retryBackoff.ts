@@ -1,14 +1,44 @@
+/**
+ * Options for the `retryBackoff` function.
+ */
 export interface RetryBackoffOptions {
-  /** Maximum number of retries */
+  /** Maximum number of retry attempts. Defaults to `3`. */
   retries?: number;
-  /** Initial delay in ms */
+  /** Initial delay in milliseconds before the first retry. Defaults to `100`. */
   baseDelay?: number;
-  /** Exponential factor for delay */
+  /** Exponential factor for increasing the delay between retries. Defaults to `2`. */
   factor?: number;
-  /** Maximum delay cap in ms */
+  /** Maximum delay cap in milliseconds. Defaults to `10000`. */
   maxDelay?: number;
 }
 
+/**
+ * Retries an asynchronous function using exponential backoff between attempts.
+ *
+ * This is useful for handling transient failures, especially in network or API calls,
+ * by progressively increasing the delay between retries.
+ *
+ * @example
+ * ```ts
+ * let attempt = 0;
+ * const result = await retryBackoff(async () => {
+ *   if (attempt++ < 2) throw new Error("Failed");
+ *   return "Success";
+ * }, { retries: 5, baseDelay: 100, factor: 2 });
+ *
+ * console.log(result); // "Success"
+ * ```
+ *
+ * @template T - The type of the resolved value from the async function.
+ * @param fn - The asynchronous function to retry.
+ * @param options - Optional configuration for retries, delay, and backoff factor.
+ * @returns A promise resolving to the function's result, or rejecting after all retries fail.
+ *
+ * @throws Will throw the last encountered error after exhausting all retries.
+ *
+ * @group Async
+ * @since 1.1.0
+ */
 export async function retryBackoff<T>(
   fn: () => Promise<T>,
   options: RetryBackoffOptions = {}

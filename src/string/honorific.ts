@@ -1,4 +1,3 @@
-// src/string/honorific.ts
 const HONORIFIC_SUFFIXES = [
   "Jr.",
   "Sr.",
@@ -20,6 +19,21 @@ const HONORIFIC_SUFFIXES_SORTED = [...HONORIFIC_SUFFIXES].sort(
 
 /**
  * Removes a recognized honorific suffix from a string if present.
+ *
+ * @param str - The string to remove the suffix from.
+ * @returns The string without the honorific suffix.
+ *
+ * @group String
+ * @since 1.1.0
+ *
+ * @example
+ * ```ts
+ * removeHonorificSuffix("John Doe Jr.");
+ * // Returns: "John Doe"
+ *
+ * removeHonorificSuffix("Jane Smith IV");
+ * // Returns: "Jane Smith"
+ * ```
  */
 export function removeHonorificSuffix(str: string): string {
   for (const suffix of HONORIFIC_SUFFIXES_SORTED) {
@@ -34,7 +48,19 @@ export function removeHonorificSuffix(str: string): string {
 }
 
 /**
- * Returns the honorific suffix if present, otherwise null
+ * Returns the honorific suffix from a string if present, otherwise null.
+ *
+ * @param str - The string to check for an honorific suffix.
+ * @returns The honorific suffix if found, otherwise `null`.
+ *
+ * @example
+ * ```ts
+ * getHonorificSuffix("John Doe Jr.");
+ * // Returns: "Jr."
+ *
+ * getHonorificSuffix("Jane Smith");
+ * // Returns: null
+ * ```
  */
 export function getHonorificSuffix(str: string): string | null {
   for (const suffix of HONORIFIC_SUFFIXES_SORTED) {

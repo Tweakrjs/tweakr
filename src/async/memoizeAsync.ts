@@ -6,6 +6,30 @@ function stableStringify(obj: any): string {
   return `{${keys.map((k) => `${k}:${stableStringify(obj[k])}`).join(",")}}`;
 }
 
+/**
+ * Memoizes an asynchronous function by caching results based on stable argument serialization.
+ *
+ * Subsequent calls with the same arguments return the cached promise,
+ * avoiding redundant asynchronous executions.
+ *
+ * @example
+ * ```ts
+ * const fetchUser = memoizeAsync(async (id: number) => {
+ *   console.log("Fetching user:", id);
+ *   return { id, name: "User" + id };
+ * });
+ *
+ * await fetchUser(1); // Executes
+ * await fetchUser(1); // Returns cached result
+ * ```
+ *
+ * @typeParam T - The async function type to memoize.
+ * @param fn - The asynchronous function to memoize.
+ * @returns A memoized version of the input async function.
+ *
+ * @group Async
+ * @since 1.0.0
+ */
 export function memoizeAsync<T extends (...args: any[]) => Promise<any>>(
   fn: T
 ) {
