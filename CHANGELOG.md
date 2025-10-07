@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Tweakrjs/tweakr/compare/v1.0.6...v1.1.0) (2025-10-07)
+
+
+### Features
+
+* **array:** Added GroupBy Function and test ([dfe9df0](https://github.com/Tweakrjs/tweakr/commit/dfe9df01437130ff7178440b33c72522951daef2))
+* **array:** Array improvements for v1.1.x ([1692a08](https://github.com/Tweakrjs/tweakr/commit/1692a086967286f0ff16ed6b7e98d2e18f2a1e93))
+* **async:** improve async utilities and tests ([d4a9049](https://github.com/Tweakrjs/tweakr/commit/d4a90491c9d49b1477f121480051126fb2668de6))
+* **async:** transferred to async from functions ([eeabf96](https://github.com/Tweakrjs/tweakr/commit/eeabf96b411ee0534ca0297e16bff269d7dc29f4))
+* **browser:** improve performance of scroll, focus, and clipboard helpers ([660ec60](https://github.com/Tweakrjs/tweakr/commit/660ec60c269769711529bf4fd84810978834ca66))
+* **function:** improve memoize, memoizeAsync, and tryCatch ([31918ca](https://github.com/Tweakrjs/tweakr/commit/31918ca6285fff4fff96cba70f689f7df7595259))
+* **number:** enhance number utils with memoization, precision handling, type safety, and modular tests ([38297e7](https://github.com/Tweakrjs/tweakr/commit/38297e7148053cdcbcf0bae2f1a4ca0c0773560a))
+* **object:** add fully typed object helpers with JSDoc ([61d524a](https://github.com/Tweakrjs/tweakr/commit/61d524adc4d3b4dfef11e7c69518d54924f6b83b))
+* **object:** improve object utilities ([d3374f7](https://github.com/Tweakrjs/tweakr/commit/d3374f7d9ebbe07c7c9b3da6bc467db09eff8f3b))
+* **string:** add 10 new string utilities and improve tests ([e38427c](https://github.com/Tweakrjs/tweakr/commit/e38427c3b4b0ade005b9c5671c4070fd2ca6522c))
+* **string:** add fully typed string helpers with JSDoc ([f395765](https://github.com/Tweakrjs/tweakr/commit/f395765f3a5f1d0bef68596cf56384fb4120c750))
+* transferred lang to string ([65005fc](https://github.com/Tweakrjs/tweakr/commit/65005fcb103c706630941ce211f6f506735fc60f))
+* **util:** add fully typed util helpers with TSDoc ([5ee62d5](https://github.com/Tweakrjs/tweakr/commit/5ee62d509092d820153cf22f17237e47068d8fa8))
+* **util:** optimize helpers and add robust tests ([9666ee2](https://github.com/Tweakrjs/tweakr/commit/9666ee28d73435e6cf02748c2de95e38d4190032))
+
 ### [1.0.6](https://github.com/coxxanthony/tweakr/compare/v1.0.5...v1.0.6) (2025-10-06)
 
 ### [1.0.5](https://github.com/coxxanthony/tweakr/compare/v1.0.4...v1.0.5) (2025-10-06)
