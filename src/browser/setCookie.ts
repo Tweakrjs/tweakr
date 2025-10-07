@@ -1,3 +1,39 @@
+/**
+ * @interface CookieOptions
+ * @description Options for configuring a browser cookie.
+ */
+interface CookieOptions {
+  /**
+   * @property {number} [days]
+   * @description The number of days until the cookie expires. If not provided,
+   * the cookie will typically be a session cookie (expires when the browser closes).
+   */
+  days?: number; // number of days before expiration
+
+  /**
+   * @property {string} [path]
+   * @description The path for which the cookie is valid. Defaults to the
+   * current document location.
+   */
+  path?: string;
+
+  /**
+   * @property {"Lax" | "Strict" | "None"} [sameSite]
+   * @description Controls whether the cookie is sent with cross-site requests,
+   * providing some protection against cross-site request forgery attacks.
+   * - "Lax": Sent with navigation requests, but not other cross-site requests.
+   * - "Strict": Only sent with requests originating from the same site.
+   * - "None": Sent with all requests, but requires the 'secure' attribute.
+   */
+  sameSite?: "Lax" | "Strict" | "None";
+
+  /**
+   * @property {boolean} [secure]
+   * @description Indicates that the cookie should only be sent over secure
+   * protocols (HTTPS). This attribute is required if `sameSite` is set to "None".
+   */
+  secure?: boolean;
+}
 interface CookieOptions {
   days?: number; // number of days before expiration
   path?: string;
