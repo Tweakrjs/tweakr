@@ -38,3 +38,5 @@ export * from "./replaceVowels";
 export * from "./reverseWordsAdvanced";
 export * from "./snakeToCamel";
 export * from "./camelToKebab";
+export * from "./getHonorificSuffix";
+export * from "./removeHonorificSuffix";

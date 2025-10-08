@@ -15,5 +15,18 @@
  * ```
  */
 export function collapseWhitespace(str: string): string {
-  return str.replace(/\s+/g, " ").trim();
+  if (!str) return "";
+
+  // Decode common HTML whitespace entities
+  const htmlDecoded = str
+    .replace(/&nbsp;/gi, "\u00A0")
+    .replace(/&emsp;/gi, "\u2003")
+    .replace(/&ensp;/gi, "\u2002")
+    .replace(/&thinsp;/gi, "\u2009");
+
+  // Collapse all consecutive Unicode whitespace and zero-width spaces to single space
+  const UNICODE_WHITESPACE =
+    /[\s\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000\u200B]+/g;
+
+  return htmlDecoded.replace(UNICODE_WHITESPACE, " ").trim();
 }

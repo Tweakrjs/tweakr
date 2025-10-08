@@ -15,9 +15,28 @@
  * removeSuffix("world", "ing");   // "world" (suffix not found)
  * ```
  */
-export function removeSuffix(str: string, suffix: string): string {
-  if (str.slice(-suffix.length) === suffix) {
-    return str.slice(0, -suffix.length);
+export function removeSuffix(
+  str: string,
+  suffix: string,
+  options?: { caseInsensitive?: boolean }
+): string {
+  if (!suffix) return str;
+
+  const normalizedStr = str.normalize();
+  const normalizedSuffix = suffix.normalize();
+
+  if (options?.caseInsensitive) {
+    if (
+      normalizedStr.slice(-normalizedSuffix.length).toLowerCase() ===
+      normalizedSuffix.toLowerCase()
+    ) {
+      return str.slice(0, -suffix.length);
+    }
+  } else {
+    if (normalizedStr.endsWith(normalizedSuffix)) {
+      return str.slice(0, -suffix.length);
+    }
   }
+
   return str;
 }

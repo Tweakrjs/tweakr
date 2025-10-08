@@ -14,6 +14,23 @@
  * includes("Hello World", "world"); // false
  * ```
  */
-export function includes(str: string, search: string): boolean {
-  return str.indexOf(search) !== -1;
+export function includes(
+  str: string,
+  search: string,
+  options?: { caseInsensitive?: boolean }
+): boolean {
+  // Keep original behavior: empty search returns true
+  if (search === "") return true;
+
+  // Normalize strings for Unicode
+  const normalizedStr = str.normalize();
+  const normalizedSearch = search.normalize();
+
+  if (options?.caseInsensitive) {
+    return (
+      normalizedStr.toLowerCase().indexOf(normalizedSearch.toLowerCase()) !== -1
+    );
+  }
+
+  return normalizedStr.indexOf(normalizedSearch) !== -1;
 }

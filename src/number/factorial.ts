@@ -1,30 +1,30 @@
-const memoCache: Record<string, number> = {};
+const factCache: Record<number, bigint> = {
+  0: 1n,
+  1: 1n,
+};
+
 /**
- * Computes the factorial of a non-negative integer using memoization.
+ * Computes the factorial of a non-negative integer using memoization and BigInt.
  *
- * Memoization stores previously calculated factorials in an internal cache
- * to improve performance for repeated calls.
+ * Results are cached for performance and returned as BigInt for large values.
  *
  * @example
- * ```ts
- * factorial(0); // 1
- * factorial(5); // 120
- * ```
+ * factorial(5); // 120n
+ * factorial(25n); // 15511210043330985984000000n
  *
- * @param n - The non-negative integer to calculate the factorial of.
- * @returns The factorial of `n`.
- * @throws {Error} If `n` is negative.
+ * @param n - The non-negative integer or bigint to compute the factorial of.
+ * @returns The factorial of `n` as a BigInt.
+ * @throws {Error} If `n` is negative or not an integer.
  *
  * @group Number
- * @since 1.1.0
+ * @since 1.2.0
  */
-export function factorial(n: number): number {
-  if (n < 0) throw new Error("Factorial not defined for negative numbers");
-  if (n === 0) return 1;
+export function factorial(n: number | bigint): bigint {
+  const num = typeof n === "bigint" ? n : BigInt(n);
+  if (num < 0n) throw new Error("Factorial not defined for negative numbers");
+  if (factCache[Number(num)] !== undefined) return factCache[Number(num)];
 
-  if (memoCache[`fact_${n}`] !== undefined) return memoCache[`fact_${n}`];
-
-  const result = n * factorial(n - 1);
-  memoCache[`fact_${n}`] = result;
+  const result = num * factorial(num - 1n);
+  factCache[Number(num)] = result;
   return result;
 }

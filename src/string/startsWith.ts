@@ -16,5 +16,23 @@
  * ```
  */
 export function startsWith(str: string, prefix: string): boolean {
-  return str.slice(0, prefix.length) === prefix;
+  // Handle empty prefix
+  if (prefix === "") return true;
+
+  // If prefix is longer than string, cannot match
+  if (prefix.length > str.length) return false;
+
+  // Decode HTML whitespace entities
+  const decodeHtmlWhitespace = (s: string) =>
+    s
+      .replace(/&nbsp;/gi, "\u00A0")
+      .replace(/&emsp;/gi, "\u2003")
+      .replace(/&ensp;/gi, "\u2002")
+      .replace(/&thinsp;/gi, "\u2009");
+
+  const normalizedStr = decodeHtmlWhitespace(str).normalize("NFC");
+  const normalizedPrefix = decodeHtmlWhitespace(prefix).normalize("NFC");
+
+  // Use slice comparison instead of startsWith (more robust in some environments)
+  return normalizedStr.slice(0, normalizedPrefix.length) === normalizedPrefix;
 }

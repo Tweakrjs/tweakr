@@ -1,9 +1,8 @@
 /**
- * Executes asynchronous tasks in parallel, but limits
- * the number of concurrent executions.
+ * Executes asynchronous tasks in parallel with a concurrency limit.
  *
- * Useful for controlling concurrency when performing
- * network requests, file operations, or heavy computations.
+ * Tasks are executed up to `limit` at a time. Results are returned
+ * in the same order as the original task array.
  *
  * @example
  * ```ts
@@ -19,34 +18,37 @@
  * @typeParam T - The type of each resolved result.
  * @param tasks - An array of async task functions returning promises.
  * @param limit - Maximum number of concurrent tasks (default: 5).
- * @returns A promise resolving to an array of results, preserving order.
+ * @returns A promise resolving to an array of results in original order.
  *
  * @throws If any task rejects, the error is propagated immediately.
  *
  * @group Async
- * @since 1.0.0
+ * @since 1.2.0
  */
 export async function parallelLimit<T>(
-  tasks: (() => Promise<T>)[],
+  tasks: Array<() => Promise<T>>,
   limit = 5
 ): Promise<T[]> {
   const results: T[] = [];
-  let index = 0;
+  let currentIndex = 0;
 
-  const worker = async () => {
+  const worker = async (): Promise<void> => {
     while (true) {
-      const i = index++;
+      const i = currentIndex++;
       if (i >= tasks.length) break;
+
       try {
         results[i] = await tasks[i]();
       } catch (err) {
-        throw err; // propagate errors
+        throw err; // propagate error immediately
       }
     }
   };
 
+  // Start up to `limit` workers
   await Promise.all(
-    Array(Math.min(limit, tasks.length)).fill(null).map(worker)
+    Array.from({ length: Math.min(limit, tasks.length) }, () => worker())
   );
+
   return results;
 }

@@ -1,38 +1,26 @@
 /**
- * Reads text from the system clipboard.
+ * Reads text from the clipboard asynchronously.
  *
- * Uses the modern `navigator.clipboard.readText` API when available.
- * Throws an error if the API is unsupported or requires user interaction.
+ * Uses `navigator.clipboard` if available. Returns `null` if unsupported or on error.
  *
  * @example
  * ```ts
- * try {
- *   const text = await readFromClipboard();
- *   console.log("Clipboard text:", text);
- * } catch (err) {
- *   console.error(err);
- * }
+ * const text = await readFromClipboard();
+ * console.log(text);
  * ```
  *
- * @returns A promise that resolves with the clipboard text.
- *
- * @throws Will throw an error if reading from the clipboard is not supported.
+ * @returns Clipboard text or `null`.
  *
  * @group Browser
- * @since 1.1.0
+ * @since 1.2.0
  */
-export async function readFromClipboard(): Promise<string> {
-  if (navigator.clipboard?.readText) {
-    try {
+export async function readFromClipboard(): Promise<string | null> {
+  try {
+    if (navigator.clipboard?.readText) {
       return await navigator.clipboard.readText();
-    } catch (err) {
-      console.error("Failed to read from clipboard:", err);
-      throw err;
     }
+    return null;
+  } catch {
+    return null;
   }
-
-  // Fallback is tricky because reading from clipboard without user action is blocked
-  throw new Error(
-    "Clipboard API not supported or requires a secure context with user interaction"
-  );
 }

@@ -15,4 +15,10 @@ describe("toRadians", () => {
     expect(() => toRadians(NaN)).toThrow();
     expect(() => toRadians(Infinity)).toThrow();
   });
+
+  it("should throw TypeError for NaN or Infinity", () => {
+    expect(() => toRadians(NaN)).toThrow(TypeError);
+    expect(() => toRadians(Infinity)).toThrow(TypeError);
+    expect(() => toRadians(-Infinity)).toThrow(TypeError);
+  });
 });

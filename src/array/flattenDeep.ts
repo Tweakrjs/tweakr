@@ -1,7 +1,48 @@
 /**
+ * Internal core flatten function.
+ * Handles shallow, deep, and depth-limited flattening.
+ *
+ * @param array - The array to flatten.
+ * @param depth - Number for depth, `true` for full flatten, or `1` for shallow.
+ * @returns Flattened array.
+ */
+function _flatten<T>(array: any[], depth: number | boolean = 1): T[] {
+  const result: T[] = [];
+  const maxDepth =
+    depth === true ? Infinity : typeof depth === "number" ? depth : 1;
+
+  if (maxDepth === 0) return array.slice(); // shallow copy if depth = 0
+
+  const stack: { arr: any[]; level: number; index: number }[] = [
+    { arr: array, level: 0, index: 0 },
+  ];
+
+  while (stack.length) {
+    const top = stack[stack.length - 1];
+    const { arr, level, index } = top;
+
+    if (index >= arr.length) {
+      stack.pop();
+      continue;
+    }
+
+    const item = arr[index];
+    top.index++; // move to next element
+
+    if (Array.isArray(item) && level < maxDepth) {
+      stack.push({ arr: item, level: level + 1, index: 0 });
+    } else {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+
+/**
  * Recursively flattens an array up to the specified depth.
  *
- * If no depth is provided, it flattens all nested arrays (infinite depth by default).
+ * Fully flattens if depth is `Infinity` (default).
  *
  * @example
  * ```ts
@@ -13,27 +54,12 @@
  * ```
  *
  * @param array - The array to flatten.
- * @param depth - The maximum depth to flatten. Defaults to `Infinity`.
- * @returns A new flattened array up to the specified depth.
+ * @param depth - Maximum depth to flatten. Default: Infinity.
+ * @returns Flattened array up to the specified depth.
  *
  * @group Array
- * @since 1.1.0
+ * @since 1.2.0
  */
 export function flattenDeep<T>(array: any[], depth: number = Infinity): T[] {
-  const result: T[] = [];
-  const stack: { arr: any[]; level: number }[] = [{ arr: array, level: 0 }];
-
-  while (stack.length) {
-    const { arr, level } = stack.pop()!;
-    for (const item of arr) {
-      if (Array.isArray(item) && level < depth) {
-        // Push nested array with incremented level
-        stack.push({ arr: item, level: level + 1 });
-      } else {
-        result.push(item);
-      }
-    }
-  }
-
-  return result;
+  return _flatten(array, depth);
 }
