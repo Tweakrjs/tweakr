@@ -22,7 +22,15 @@
     "async",
     "functional",
     "immutable",
-    "helpers"
+    "helpers",
+    "javascript",
+    "browser",
+    "array",
+    "object",
+    "string",
+    "number",
+    "tree-shakable",
+    "promise"
   ],
   "license": "MIT",
   "author": "Coxlee Anthony Hubilla <https://github.com/coxxanthony>",

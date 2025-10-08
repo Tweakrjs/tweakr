@@ -159,9 +159,9 @@ import { memoize } from "tweakr/function";
 
 ## 🛠 Utility Helpers by Category
 
-### 🟦 Array Helpers (13)
+### 🟦 Array Helpers (30)
 
-`chunk`, `compact`, `concat`, `difference`, `drop`, `dropRight`, `fill`, `flatten`, `flattenDeep`, `head`, `initial`, `intersection`, `join`
+`chunk`, `compact`, `concat`, `difference`, `differenceBy`, `drop`, `dropRight`, `fill`, `flatten`, `flattenDeep`, `flattenDepth`, `head`, `initial`, `intersection`, `intersectionBy`, `join`, `shuffle`, `unique`, `union`, `unionBy`, `zip`, `zipWith`, `unzip`, `chunkWhile`, `removeIndex`, `take`, `takeRight`, `dropWhile`, `takeWhile`, `groupBy`
 
 ### ⏱ Async Helpers (22)
 
@@ -171,23 +171,23 @@ import { memoize } from "tweakr/function";
 
 `copyToClipboard`, `deleteCookie`, `downloadFile`, `focusElement`, `getCookie`, `getDeviceType`, `getQueryParam`, `getScrollPosition`, `getThemePreference`, `getUserLanguage`, `isInViewport`, `isOnline`, `onVisibilityChange`, `readFromClipboard`, `removeQueryParam`, `scrollToBottom`, `scrollToTop`, `setCookie`, `setFavicon`, `setQueryParam`
 
-### ⚙️ Function Helpers (22)
+### ⚙️ Function Helpers (34)
 
-`after`, `asyncCompose`, `asyncPipe`, `before`, `compose`, `curry`, `debounce`, `defer`, `delay`, `memoize`, `noop`, `once`, `partial`, `pipe`, `promisify`, `rateLimit`, `throttle`, `times`, `tryCatch`, `unary`, `wrap`, `yieldToNext`
+`after`, `asyncCompose`, `asyncPipe`, `before`, `compose`, `curry`, `debounce`, `defer`, `delay`, `memoize`, `noop`, `once`, `partial`, `pipe`, `promisify`, `rateLimit`, `throttle`, `times`, `tryCatch`, `unary`, `wrap`, `yieldToNext`, `tap`, `wrapDeep`, `afterAsync`, `beforeAsync`, `curryN`, `composeN`, `pipeN`, `memoizeN`, `onceNAsync`, `identityAsync`, `retryAsync`
 
-### 🔤 String / Language Helpers (25)
+### 🔤 String / Language Helpers (31)
 
-`camelCase`, `containsIgnoreCase`, `capitalize`, `endsWithIgnoreCase`, `escapeHtml`, `interpolate`, `isPalindrome`, `padLeft`, `padRight`, `pluralize`, `randomString`, `repeat`, `reverseString`, `singularize`, `startsWithIgnoreCase`, `stripAccents`, `stripHtml`, `stripWhitespace`, `slugify`, `titleCase`, `truncate`, `unescapeHtml`, `wordCount`
+`camelCase`, `containsIgnoreCase`, `capitalize`, `endsWithIgnoreCase`, `escapeHtml`, `interpolate`, `isPalindrome`, `padLeft`, `padRight`, `pluralize`, `randomString`, `repeat`, `reverseString`, `reverseWordsAdvanced`, `singularize`, `startsWithIgnoreCase`, `stripAccents`, `stripHtml`, `stripWhitespace`, `slugify`, `titleCase`, `truncate`, `unescapeHtml`, `removeNumbers`, `truncateWords`, `replaceVowels`, `snakeToCamel`, `camelToKebab`, `endsWith`, `includes`, `removePrefix`, `removeSuffix`
 
-### 🔢 Number Helpers (21)
+### 🔢 Number Helpers (26)
 
-`clamp`, `decimalPlaces`, `factorial`, `fibonacci`, `isEven`, `isFiniteNumber`, `isInteger`, `isNegative`, `isOdd`, `isPositive`, `isPrime`, `lerp`, `max`, `min`, `random`, `round`, `sum`, `toDegrees`, `toFixedNumber`, `toPercentage`, `toRadians`
+`clamp`, `decimalPlaces`, `factorial`, `fibonacci`, `isEven`, `isFiniteNumber`, `isInteger`, `isNegative`, `isOdd`, `isPositive`, `isPrime`, `lerp`, `max`, `min`, `random`, `round`, `sum`, `toDegrees`, `toFixedNumber`, `toPercentage`, `toRadians`, `randomInt`, `randomFloat`, `clampBigInt`, `factorialBigInt`, `isEvenBigInt`
 
-### 🟫 Object Helpers (16)
+### 🟫 Object Helpers (29)
 
-`cloneDeep`, `deepEqual`, `deepMerge`, `entries`, `filterKeys`, `filterValues`, `get`, `invert`, `keys`, `mapValues`, `merge`, `omit`, `pick`, `set`, `values`
+`cloneDeep`, `deepEqual`, `deepMerge`, `entries`, `filterKeys`, `filterValues`, `get`, `invert`, `keys`, `mapValues`, `mapValuesDeep`, `mapKeysDeep`, `merge`, `mergeAll`, `omit`, `omitBy`, `omitDeep`, `pick`, `pickBy`, `pickDeep`, `set`, `unset`, `values`, `assignDeep`, `getOrDefault`, `invertBy`, `has`, `clone`, `assign`
 
-### 🛠 General Utilities (7)
+### 🛠 General / Misc Utilities (7)
 
 `debouncePromise`, `deepFreeze`, `identity`, `isEmpty`, `noopAsync`, `pipeAsync`, `uniqueId`
 
@@ -195,21 +195,53 @@ import { memoize } from "tweakr/function";
 
 ## 🛣 Roadmap
 
-### 1.x (Current & Improvements)
+### v1.2.x (Latest)
 
-- Fully implemented: `array`, `async`, `function`, `lang`, `number`, `object`, `browser`
-- Modular, tree-shakable, TypeScript-ready
-- Minified UMD for browser usage
-- Comprehensive Vitest coverage
-- Incremental improvements in 1.x releases:
+**New Functions (50)**
 
-  - **Internal migration:** `lang/` → `string/` with backward-compatible exports
-  - Performance optimizations for heavy utilities (`flattenDeep`, `deepMerge`, `memoize`, `asyncCompose`)
-  - Improved TypeScript typings and generics
-  - Bug fixes and edge-case handling for arrays, objects, numbers, and browser utilities
-  - Updated documentation and examples
-  - Minor async and promise helper refinements (`debounceAsync`, `pipeAsync`, `queue`)
-  - Gradual addition of new string utilities (`replaceAll`, `startsWith`, `endsWith`, `pad`, etc.)
+**Array Utilities (15)**
+`union`, `unionBy`, `intersectionBy`, `differenceBy`, `compactBy`, `zip`, `zipWith`, `unzip`, `flattenDepth`, `chunkWhile`, `removeIndex`, `take`, `takeRight`, `dropWhile`, `takeWhile`
+
+**Object Utilities (12)**
+`pickBy`, `omitBy`, `mapKeysDeep`, `mapValuesDeep`, `invertBy`, `has`, `unset`, `mergeAll`, `assignDeep`, `pickDeep`, `omitDeep`, `getOrDefault`
+
+**String Utilities (6)**
+`removeNumbers`, `truncateWords`, `replaceVowels`, `reverseWordsAdvanced`, `snakeToCamel`, `camelToKebab`
+
+**Number Utilities (5)**
+`randomInt`, `randomFloat`, `clampBigInt`, `factorialBigInt`, `isEvenBigInt`
+
+**Function / Misc Utilities (12)**
+`tap`, `wrapDeep`, `afterAsync`, `beforeAsync`, `curryN`, `composeN`, `pipeN`, `memoizeN`, `onceNAsync`, `noopAsync`, `identityAsync`, `retryAsync`
+
+**Improvements / Fixes to Existing v1.1 Functions**
+
+- **Array:** `flatten` / `flattenDeep` optimized for large arrays, `unique` improved for all value types, `groupBy` safer & better generics
+- **Async:** `debounceAsync`, `queue`, `parallelLimit` optimized; `waitFor` improved; `retryBackoff` predictable; `asyncCompose` / `asyncPipe` optimized
+- **Function:** `memoize` / `memoizeAsync` supports deep keys; `tryCatch` improved; `curry`, `partial`, `once`, `after`, `before` improved typings/performance
+- **Number:** `fibonacci` / `factorial` memoized, BigInt support; `toFixedNumber` / `toPercentage` fixed; `lerp`, `toDegrees`, `toRadians` improved
+- **Object:** `deepEqual` correctness for nested objects/arrays
+- **Browser:** `scrollToTop`, `scrollToBottom`, `focusElement` performance/cross-browser improvements; clipboard & cookie helpers refined
+- **String:** verify v1.1 functions work; fix edge cases (Unicode, accents, HTML entities)
+- **Utility / Misc:** `deepFreeze` improved, `isEmpty` enhanced, `identityAsync`, `noopAsync` fully async-safe
+
+> ✅ **Summary:** 50 new functions added; existing v1.1 functions optimized for performance, type safety, edge cases, and async readiness. Fully additive, strengthening the foundation from v1.1.
+
+---
+
+### v1.1.x
+
+- Introduced 11 new or improved functions, mostly in **string** utilities and `groupBy` for arrays
+- Focused on expanding core functionality and improving existing helpers
+- Alphabetical test coverage and backward-compatible updates
+
+### v1.0 (Initial Release)
+
+- Core modules implemented: `array`, `async`, `function`, `lang` (later `string`), `number`, `object`, `browser`
+- Fully tree-shakable and TypeScript-ready
+- Minified UMD bundle for browser usage
+- Comprehensive Vitest coverage for all utilities
+- Base set of fundamental helpers for each category
 
 ---
 
