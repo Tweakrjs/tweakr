@@ -21,7 +21,7 @@
  * @returns An object where keys represent group identifiers and values are arrays of grouped elements.
  *
  * @group Array
- * @since 1.1.0
+ * @since 1.2.0
  */
 export function groupBy<T, K extends keyof any>(
   array: T[],
@@ -32,7 +32,7 @@ export function groupBy<T, K extends keyof any>(
   for (const item of array) {
     let key = keyFn(item);
     if (key === undefined || key === null) {
-      key = "__undefined__" as K; // Type assertion to satisfy TS
+      key = "__undefined__" as K;
     }
     const stringKey = String(key);
     if (!result[stringKey]) {

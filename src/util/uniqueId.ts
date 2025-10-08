@@ -6,7 +6,7 @@ let idCounter = 0;
  * Each call increments an internal counter to ensure uniqueness within the runtime.
  *
  * @group Util
- * @since 1.1.0
+ * @since 1.2.0
  *
  * @param prefix - An optional string to prepend to the generated ID. Default is an empty string.
  * @returns A unique string ID.
@@ -18,7 +18,14 @@ let idCounter = 0;
  * uniqueId("item_");  // "item_3"
  * ```
  */
-export function uniqueId(prefix = ""): string {
+export function uniqueId(prefix: string = ""): string {
   idCounter += 1;
   return `${prefix}${idCounter}`;
+}
+
+/**
+ * Resets the internal counter (useful for testing or isolated environments)
+ */
+export function resetUniqueId(): void {
+  idCounter = 0;
 }

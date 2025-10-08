@@ -1,6 +1,5 @@
 export * from "./after";
 export * from "../async/asyncCompose";
-export * from "../async/asyncPipe";
 export * from "./before";
 export * from "./compose";
 export * from "./curry";
@@ -31,6 +30,5 @@ export * from "./composeN";
 export * from "./pipeN";
 export * from "./memoizeN";
 export * from "./onceNAsync";
-export * from "./noopAsync";
 export * from "./identityAsync";
 export * from "./retryAsync";

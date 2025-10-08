@@ -1,36 +1,50 @@
+import { stableStringify } from "../internal/stableStringify";
+
 /**
- * Creates a memoized version of a function, caching results based on arguments.
+ * Creates a memoized version of a function by caching its return values
+ * based on a deterministic key derived from its arguments.
  *
- * Uses a stable stringification of arguments to support deep object keys.
+ * Supports deep object keys via {@link stableStringify} and allows a custom
+ * cache resolver for advanced use cases.
+ *
+ * @typeParam T - The function type to memoize.
+ * @param fn - The function whose results should be cached.
+ * @param resolver - Optional custom function to generate cache keys from arguments.
+ * @returns A new function that caches results of `fn` calls.
  *
  * @example
  * ```ts
  * const add = (a: number, b: number) => a + b;
  * const memoizedAdd = memoize(add);
- * console.log(memoizedAdd(1, 2)); // 3, computed
- * console.log(memoizedAdd(1, 2)); // 3, retrieved from cache
+ *
+ * memoizedAdd(1, 2); // Computes result: 3
+ * memoizedAdd(1, 2); // Returns cached result: 3
  * ```
  *
- * @param fn - The function to memoize.
- * @returns A new function that caches results of `fn`.
+ * @example
+ * ```ts
+ * // Custom cache resolver
+ * const memoized = memoize(
+ *   (obj: { id: number }) => obj.id * 2,
+ *   (obj) => String(obj.id)
+ * );
+ * memoized({ id: 1 }); // Computed
+ * memoized({ id: 1 }); // Cached via resolver
+ * ```
  *
  * @group Function
- * @since 1.1.0
+ * @since 1.2.0
  */
-export function memoize<T extends (...args: any[]) => any>(fn: T) {
-  const cache = new Map<string, any>();
-
-  function stableStringify(obj: any): string {
-    if (obj === null) return "null";
-    if (typeof obj !== "object") return String(obj);
-    if (Array.isArray(obj)) return `[${obj.map(stableStringify).join(",")}]`;
-    const keys = Object.keys(obj).sort();
-    return `{${keys.map((k) => `${k}:${stableStringify(obj[k])}`).join(",")}}`;
-  }
+export function memoize<T extends (...args: any[]) => any>(
+  fn: T,
+  resolver?: (...args: Parameters<T>) => string
+): (...args: Parameters<T>) => ReturnType<T> {
+  const cache = new Map<string, ReturnType<T>>();
+  const serialize = resolver ?? ((...args: any[]) => stableStringify(args));
 
   return (...args: Parameters<T>): ReturnType<T> => {
-    const key = stableStringify(args);
-    if (cache.has(key)) return cache.get(key);
+    const key = serialize(...args);
+    if (cache.has(key)) return cache.get(key)!;
     const result = fn(...args);
     cache.set(key, result);
     return result;

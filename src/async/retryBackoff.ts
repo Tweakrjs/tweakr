@@ -10,6 +10,8 @@ export interface RetryBackoffOptions {
   factor?: number;
   /** Maximum delay cap in milliseconds. Defaults to `10000`. */
   maxDelay?: number;
+  /** Optional callback invoked on each failed attempt. Receives the error and attempt number. */
+  onError?: (error: any, attempt: number) => void;
 }
 
 /**
@@ -57,7 +59,7 @@ export async function retryBackoff<T>(
       return await fn();
     } catch (err) {
       lastError = err;
-
+      if (options.onError) options.onError(err, attempt + 1);
       if (attempt < retries - 1) {
         // calculate exponential backoff delay
         let delay = Math.min(baseDelay * factor ** attempt, maxDelay);

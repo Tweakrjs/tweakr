@@ -25,4 +25,13 @@ describe("toPercentage", () => {
   it("should handle negative totals", () => {
     expect(toPercentage(50, -200)).toBe(-25);
   });
+
+  it("should handle floating-point precision correctly", () => {
+    expect(toPercentage(0.1 + 0.2, 0.3)).toBe(100);
+    expect(toPercentage(0.3, 0.1 + 0.2)).toBe(100);
+  });
+
+  it("should handle small decimal values accurately", () => {
+    expect(toPercentage(0.001, 0.003, 2)).toBe(33.33);
+  });
 });

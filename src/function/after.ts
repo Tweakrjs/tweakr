@@ -1,29 +1,20 @@
 /**
- * Creates a function that will invoke `fn` only after it has been called `n` times.
+ * Creates a function that invokes `fn` only after it has been called `n` times.
  *
  * @example
- * ```ts
- * const initAfter3 = after(3, () => console.log("Called after 3 invocations"));
- * initAfter3(); // nothing
- * initAfter3(); // nothing
- * initAfter3(); // logs: "Called after 3 invocations"
- * ```
- *
- * @param n - Number of calls before `fn` is invoked.
- * @param fn - The function to call after `n` invocations.
- * @returns A new function that tracks the call count.
- *
- * @group Function
- * @since 1.1.0
+ * const ready = after(3, () => console.log("Ready!"));
+ * ready(); ready(); ready(); // logs "Ready!"
  */
-export function after(n: number, fn: (...args: any[]) => any) {
-  let count = 0;
-  let called = false;
-  return (...args: any[]) => {
-    count++;
-    if (count >= n && !called) {
-      called = true;
-      return fn(...args);
+export function after<T extends (...args: any[]) => any>(
+  n: number,
+  fn: T
+): (...args: Parameters<T>) => ReturnType<T> | undefined {
+  let remaining = n;
+  let result: ReturnType<T> | undefined;
+  return (...args: Parameters<T>): ReturnType<T> | undefined => {
+    if (--remaining <= 0) {
+      if (result === undefined) result = fn(...args);
+      return result;
     }
     return undefined;
   };

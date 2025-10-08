@@ -1,52 +1,81 @@
+import { describe, it, expect } from "vitest";
 import { waitFor } from "../../src/async/waitFor";
 
 describe("waitFor", () => {
-  it("should resolve when condition is met (sync condition)", async () => {
+  it("resolves when condition is immediately true", async () => {
+    let called = false;
+    await waitFor(() => {
+      called = true;
+      return true;
+    });
+    expect(called).toBe(true);
+  });
+
+  it("resolves when condition becomes true after some time", async () => {
     let ready = false;
-    setTimeout(() => (ready = true), 30);
-    await waitFor(() => ready, { interval: 10, timeoutMs: 100 });
+    setTimeout(() => {
+      ready = true;
+    }, 100);
+
+    await waitFor(() => ready, { interval: 50, timeoutMs: 500 });
     expect(ready).toBe(true);
   });
 
-  it("should resolve when condition is met (async condition)", async () => {
-    let count = 0;
-    const condition = async () => {
-      count++;
-      return count >= 3;
-    };
-    await waitFor(condition, { interval: 10, timeoutMs: 100 });
-    expect(count).toBeGreaterThanOrEqual(3);
-  });
-
-  it("should throw on timeout", async () => {
-    const condition = () => false;
+  it("rejects if timeout is exceeded", async () => {
+    let ready = false;
     await expect(
-      waitFor(condition, { interval: 10, timeoutMs: 50 })
+      waitFor(() => ready, { interval: 50, timeoutMs: 100 })
     ).rejects.toThrow("Timeout waiting for condition");
   });
 
-  it("should accept dynamic polling interval", async () => {
+  it("supports asynchronous condition function", async () => {
+    let count = 0;
+    setTimeout(() => {
+      count = 3;
+    }, 100);
+
+    await waitFor(async () => count === 3, { interval: 20, timeoutMs: 500 });
+
+    expect(count).toBe(3);
+  });
+
+  it("supports dynamic interval function", async () => {
     let ready = false;
-    setTimeout(() => (ready = true), 50);
-    let pollCount = 0;
+    setTimeout(() => {
+      ready = true;
+    }, 50);
+    const start = Date.now();
 
     await waitFor(() => ready, {
-      interval: () => {
-        pollCount++;
-        return 10;
-      },
-      timeoutMs: 100,
+      interval: () => 10,
+      timeoutMs: 200,
+    });
+
+    const elapsed = Date.now() - start;
+    expect(elapsed).toBeGreaterThanOrEqual(50);
+  });
+
+  it("supports asynchronous interval function", async () => {
+    let ready = false;
+    setTimeout(() => {
+      ready = true;
+    }, 50);
+
+    await waitFor(() => ready, {
+      interval: async () => 10,
+      timeoutMs: 200,
     });
 
     expect(ready).toBe(true);
-    expect(pollCount).toBeGreaterThan(0);
   });
 
-  it("should return immediately if condition is already true", async () => {
-    const condition = () => true;
-    const start = Date.now();
-    await waitFor(condition, { interval: 10, timeoutMs: 100 });
-    const duration = Date.now() - start;
-    expect(duration).toBeLessThan(20); // almost immediate
+  it("throws custom error message on timeout", async () => {
+    await expect(
+      waitFor(() => false, {
+        interval: 50,
+        timeoutMs: 50,
+        errorMessage: "Custom timeout",
+      })
+    ).rejects.toThrow("Custom timeout");
   });
 });

@@ -17,5 +17,17 @@
  */
 export function endsWith(str: string, suffix: string): boolean {
   if (suffix === "") return true;
-  return str.slice(-suffix.length) === suffix;
+  if (suffix.length > str.length) return false;
+
+  const decodeHtmlWhitespace = (s: string) =>
+    s
+      .replace(/&nbsp;/gi, "\u00A0")
+      .replace(/&emsp;/gi, "\u2003")
+      .replace(/&ensp;/gi, "\u2002")
+      .replace(/&thinsp;/gi, "\u2009");
+
+  const normalizedStr = decodeHtmlWhitespace(str).normalize("NFC");
+  const normalizedSuffix = decodeHtmlWhitespace(suffix).normalize("NFC");
+
+  return normalizedStr.endsWith(normalizedSuffix);
 }

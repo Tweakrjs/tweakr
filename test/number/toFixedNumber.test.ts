@@ -17,4 +17,11 @@ describe("toFixedNumber", () => {
     expect(toFixedNumber(Infinity)).toBe(Infinity);
     expect(toFixedNumber(-Infinity)).toBe(-Infinity);
   });
+
+  it("should fix floating-point rounding issues", () => {
+    expect(toFixedNumber(1.005, 2)).toBe(1.01);
+    expect(toFixedNumber(2.675, 2)).toBe(2.68);
+    expect(toFixedNumber(0.615, 2)).toBe(0.62);
+    expect(toFixedNumber(123.445, 2)).toBe(123.45);
+  });
 });

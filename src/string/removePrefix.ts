@@ -15,9 +15,27 @@
  * removePrefix("world", "un");   // "world" (prefix not found)
  * ```
  */
-export function removePrefix(str: string, prefix: string): string {
-  if (str.slice(0, prefix.length) === prefix) {
-    return str.slice(prefix.length);
+export function removePrefix(
+  str: string,
+  prefix: string,
+  options?: { caseInsensitive?: boolean }
+): string {
+  if (!prefix) return str;
+
+  const normalizedStr = str.normalize();
+  const normalizedPrefix = prefix.normalize();
+
+  if (options?.caseInsensitive) {
+    if (
+      normalizedStr.toLowerCase().startsWith(normalizedPrefix.toLowerCase())
+    ) {
+      return str.slice(prefix.length);
+    }
+  } else {
+    if (normalizedStr.startsWith(normalizedPrefix)) {
+      return str.slice(prefix.length);
+    }
   }
+
   return str;
 }

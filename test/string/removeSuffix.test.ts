@@ -19,4 +19,22 @@ describe("removeSuffix", () => {
     expect(removeSuffix("", "suffix")).toBe("");
     expect(removeSuffix("", "")).toBe("");
   });
+
+  it("handles Unicode / accented characters", () => {
+    expect(removeSuffix("caféWorld", "World")).toBe("café");
+    expect(removeSuffix("naïveTest", "Test")).toBe("naïve");
+  });
+
+  it("handles case-insensitive removal", () => {
+    expect(removeSuffix("HelloWorld", "WORLD", { caseInsensitive: true })).toBe(
+      "Hello"
+    );
+    expect(removeSuffix("Foobar", "BAR", { caseInsensitive: true })).toBe(
+      "Foo"
+    );
+  });
+
+  it("handles HTML entities", () => {
+    expect(removeSuffix("Test&amp;", "&amp;")).toBe("Test");
+  });
 });

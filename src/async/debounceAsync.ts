@@ -1,11 +1,8 @@
 /**
- * Creates a debounced version of an asynchronous function.
+ * Creates a debounced version of an asynchronous function with cancellation support.
  *
- * The returned function delays invoking the provided async function until
- * after `delay` milliseconds have elapsed since the last time it was called.
- *
- * If the function is called again before the delay expires, the previous invocation
- * is canceled — including its pending promise — ensuring only the latest call runs.
+ * Only the last call within the specified delay is executed.
+ * All previous pending promises are rejected with a "Cancelled due to debounce" error.
  *
  * @example
  * ```ts
@@ -19,50 +16,48 @@
  * // → "Result for cherry"
  * ```
  *
- * @typeParam T - The async function type being debounced.
- * @param fn - The asynchronous function to debounce.
- * @param delay - The number of milliseconds to delay execution.
- * @returns A debounced async function with a `.cancel()` method to manually cancel the pending call.
+ * @typeParam T - Type of the async function to debounce.
+ * @param fn - The async function to debounce.
+ * @param delay - Milliseconds to wait before executing the function.
+ * @returns Debounced async function with `.cancel()` method.
  *
  * @group Async
- * @since 1.0.0
+ * @since 1.2.0
  */
 export function debounceAsync<T extends (...args: any[]) => Promise<any>>(
   fn: T,
   delay: number
 ) {
   let timeout: ReturnType<typeof setTimeout> | null = null;
-  let lastPromise: {
-    promise: Promise<ReturnType<T>>;
-    resolve: (value: ReturnType<T>) => void;
+  let lastCall: {
+    resolve: (value: any) => void;
     reject: (reason?: any) => void;
   } | null = null;
 
-  const wrapper = (...args: Parameters<T>) => {
+  const wrapper = (...args: Parameters<T>): Promise<ReturnType<T>> => {
     if (timeout) clearTimeout(timeout);
 
-    if (lastPromise) {
-      lastPromise?.reject(new Error("Cancelled due to debounce"));
-    }
+    // Reject previous pending call
+    if (lastCall) lastCall.reject(new Error("Cancelled due to debounce"));
 
-    let resolveFn: (value: ReturnType<T>) => void;
-    let rejectFn: (reason?: any) => void;
+    let resolveFn!: (value: ReturnType<T>) => void;
+    let rejectFn!: (reason?: any) => void;
 
     const promise = new Promise<ReturnType<T>>((resolve, reject) => {
       resolveFn = resolve;
       rejectFn = reject;
     });
 
-    lastPromise = { promise, resolve: resolveFn!, reject: rejectFn! };
+    lastCall = { resolve: resolveFn, reject: rejectFn };
 
     timeout = setTimeout(async () => {
       try {
         const result = await fn(...args);
-        lastPromise?.resolve(result);
+        lastCall?.resolve(result);
       } catch (err) {
-        lastPromise?.reject(err);
+        lastCall?.reject(err);
       } finally {
-        lastPromise = null;
+        lastCall = null;
       }
     }, delay);
 
@@ -71,8 +66,8 @@ export function debounceAsync<T extends (...args: any[]) => Promise<any>>(
 
   wrapper.cancel = () => {
     if (timeout) clearTimeout(timeout);
-    lastPromise?.reject(new Error("Cancelled manually"));
-    lastPromise = null;
+    lastCall?.reject(new Error("Cancelled manually"));
+    lastCall = null;
   };
 
   return wrapper;

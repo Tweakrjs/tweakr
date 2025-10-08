@@ -9,24 +9,18 @@
  * @group Async
  * @since 1.0.0
  */
-type AsyncFn<I = any, O = any> = (input: I) => Promise<O> | O;
+export type AsyncFn<I = any, O = any> = (input: I) => Promise<O> | O;
 
 /**
  * Pipes multiple asynchronous (or synchronous) functions into a single function,
  * executing them from left to right.
  *
- * This is the opposite of `asyncCompose`, where the output of each function
- * becomes the input of the next in order.
- *
  * @example
- * ```ts
  * const addOne = async (x: number) => x + 1;
  * const double = async (x: number) => x * 2;
  *
  * const process = asyncPipe(addOne, double);
- * await process(3);
- * // → 8  (addOne(3) → 4 → double(4) → 8)
- * ```
+ * await process(3); // → 8
  *
  * @typeParam Input - The input type of the piped function.
  * @typeParam Output - The final output type after all functions execute.
@@ -42,7 +36,12 @@ export function asyncPipe<Input, Output>(
   return async (input: Input) => {
     let result: any = input;
     for (const fn of fns) {
-      result = await fn(result);
+      try {
+        result = await fn(result);
+      } catch (err) {
+        // propagate errors immediately
+        throw err;
+      }
     }
     return result as Output;
   };

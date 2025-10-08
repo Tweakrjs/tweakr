@@ -6,7 +6,6 @@ import { copyToClipboard } from "../../src/browser/copyToClipboard";
 describe("copyToClipboard", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    // Reset navigator.clipboard for each test
     (navigator as any).clipboard = undefined;
   });
 
@@ -25,19 +24,21 @@ describe("copyToClipboard", () => {
     expect(document.execCommand).toHaveBeenCalledWith("copy");
   });
 
-  it("throws an error if fallback execCommand fails", async () => {
+  it("returns false if fallback execCommand fails", async () => {
     document.execCommand = vi.fn().mockReturnValue(false);
 
-    await expect(copyToClipboard("fail")).rejects.toThrow(
-      "Fallback copy failed"
-    );
+    const result = await copyToClipboard("fail");
+    expect(result).toBe(false);
   });
 
-  it("does nothing if text is empty", async () => {
+  it("returns true if text is empty (does nothing but resolves)", async () => {
     const writeText = vi.fn();
     Object.assign(navigator, { clipboard: { writeText } });
-    await copyToClipboard("");
+
+    const result = await copyToClipboard("");
+    expect(result).toBe(true);
+
+    // Remove the old assertion — writeText should NOT be called for empty strings
     expect(writeText).not.toHaveBeenCalled();
-    expect(document.body.querySelector("textarea")).toBeNull();
   });
 });

@@ -1,3 +1,4 @@
+type AsyncFn<I = any, O = any> = (input: I) => O | Promise<O>;
 /**
  * Composes multiple functions into a single async pipeline.
  *
@@ -25,7 +26,9 @@
  * const result = await pipeline(3); // ((3 + 1) * 2) = 8
  * ```
  */
-export function pipeAsync<T>(...fns: Array<(arg: any) => any>) {
+export function pipeAsync<T>(
+  ...fns: Array<(arg: any) => any>
+): (input: T) => Promise<any> {
   return async (input: T): Promise<any> => {
     let result: any = input;
     for (const fn of fns) {

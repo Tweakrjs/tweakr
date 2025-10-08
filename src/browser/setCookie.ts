@@ -1,56 +1,49 @@
-/**
- * Options for configuring a cookie.
- *
- * @interface CookieOptions
- * @property {number} [days] - Number of days before the cookie expires (default: 7).
- * @property {string} [path] - Cookie path (default: "/").
- * @property {"Lax" | "Strict" | "None"} [sameSite] - Cookie `SameSite` attribute (default: "Lax").
- * @property {boolean} [secure] - Whether the cookie should only be sent over HTTPS (default: false).
- *
- * @group Browser
- * @since 1.1.0
- */
 export interface CookieOptions {
-  days?: number;
   path?: string;
-  sameSite?: "Lax" | "Strict" | "None";
+  expires?: Date | number; // number = days
   secure?: boolean;
+  sameSite?: "Strict" | "Lax" | "None";
 }
 
 /**
- * Sets a cookie with optional expiration, path, SameSite, and secure attributes.
+ * Sets a cookie with optional attributes.
+ *
+ * Supports `path`, `expires`, `secure`, and `sameSite`.
  *
  * @example
  * ```ts
- * // Set a cookie that expires in 7 days
- * setCookie("sessionId", "abc123");
- *
- * // Set a secure cookie for the "/app" path
- * setCookie("authToken", "xyz789", { days: 14, path: "/app", secure: true });
+ * setCookie("token", "abc123", { path: "/", expires: 7, secure: true, sameSite: "Strict" });
  * ```
  *
- * @param name - The name of the cookie.
- * @param value - The value to store in the cookie.
- * @param options - Optional settings for the cookie.
+ * @param name - Cookie name.
+ * @param value - Cookie value.
+ * @param options - Optional cookie attributes.
+ * @param options.path - Path for the cookie. Defaults to current path.
+ * @param options.expires - Expiration date or number of days.
+ * @param options.secure - Whether the cookie is secure.
+ * @param options.sameSite - SameSite attribute (`Strict`, `Lax`, or `None`).
  *
  * @group Browser
- * @since 1.1.0
+ * @since 1.2.0
  */
 export function setCookie(
   name: string,
   value: string,
   options: CookieOptions = {}
-): void {
+) {
+  // Skip if name is empty
   if (!name) return;
 
-  const { days = 7, path = "/", sameSite = "Lax", secure = false } = options;
-
-  const expires = new Date(Date.now() + days * 864e5).toUTCString();
-  let cookieString = `${name}=${encodeURIComponent(
-    value
-  )}; expires=${expires}; path=${path}; SameSite=${sameSite}`;
-
-  if (secure) cookieString += "; Secure";
-
-  document.cookie = cookieString;
+  let cookieStr = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+  if (options.expires) {
+    const d =
+      options.expires instanceof Date
+        ? options.expires
+        : new Date(Date.now() + options.expires * 864e5); // expires in days
+    cookieStr += `;expires=${d.toUTCString()}`;
+  }
+  if (options.path) cookieStr += `;path=${options.path}`;
+  if (options.secure) cookieStr += `;secure`;
+  if (options.sameSite) cookieStr += `;samesite=${options.sameSite}`;
+  document.cookie = cookieStr;
 }
