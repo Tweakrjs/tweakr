@@ -31,6 +31,5 @@ export * from "./composeN";
 export * from "./pipeN";
 export * from "./memoizeN";
 export * from "./onceNAsync";
-export * from "./noopAsync";
 export * from "./identityAsync";
 export * from "./retryAsync";
