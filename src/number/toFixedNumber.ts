@@ -4,6 +4,12 @@
  * Handles floating-point rounding issues for both positive and negative values
  * (e.g., 1.005 → 1.01, -1.235 → -1.24).
  *
+ * @param {number} value - The number to round.
+ * @param {number} [decimals=2] - The number of decimal places to round to.
+ * @returns {number} The rounded number.
+ * @group Number
+ * @since 1.2.0
+ *
  * @example
  * toFixedNumber(1.005, 2);   // 1.01
  * toFixedNumber(-1.235, 2);  // -1.24
