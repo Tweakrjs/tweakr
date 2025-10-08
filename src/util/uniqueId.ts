@@ -24,7 +24,8 @@ export function uniqueId(prefix: string = ""): string {
 }
 
 /**
- * Resets the internal counter (useful for testing or isolated environments)
+ * @internal
+ * Resets the internal counter (useful for testing or isolated environments).
  */
 export function resetUniqueId(): void {
   idCounter = 0;
