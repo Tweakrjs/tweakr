@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Tweakrjs/tweakr/compare/v1.1.4...v1.2.0) (2025-10-08)
+
+
+### Features
+
+* **object:** add v1.2 object utilities (pickBy, omitBy, mapKeysDeep, mapValuesDeep, invertBy, has, unset, mergeAll, assignDeep, pickDeep, omitDeep, getOrDefault) with TSDoc and independent Vitest tests ([fe691a5](https://github.com/Tweakrjs/tweakr/commit/fe691a558d1302089dc333fe9efd15f748619b46))
+
 ### [1.1.4](https://github.com/Tweakrjs/tweakr/compare/v1.1.3...v1.1.4) (2025-10-07)
 
 ### [1.1.3](https://github.com/Tweakrjs/tweakr/compare/v1.1.2...v1.1.3) (2025-10-07)
