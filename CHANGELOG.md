@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/Tweakrjs/tweakr/compare/v1.2.1...v1.2.2) (2025-10-08)
+
+
+### Bug Fixes
+
+* fix erro ([2e17ef2](https://github.com/Tweakrjs/tweakr/commit/2e17ef2ad0d978893513f28a4811f14305710b91))
+
 ### [1.2.1](https://github.com/Tweakrjs/tweakr/compare/v1.2.0...v1.2.1) (2025-10-08)
 
 ## [1.2.0](https://github.com/Tweakrjs/tweakr/compare/v1.1.4...v1.2.0) (2025-10-08)
