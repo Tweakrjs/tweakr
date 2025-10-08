@@ -19,3 +19,10 @@ export * from "./toDegrees";
 export * from "./toFixedNumber";
 export * from "./toPercentage";
 export * from "./toRadians";
+
+// --- v1.2 new Number utilities ---
+export * from "./randomInt";
+export * from "./randomFloat";
+export * from "./clampBigInt";
+export * from "./factorialBigInt";
+export * from "./isEvenBigInt";
