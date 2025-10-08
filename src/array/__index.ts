@@ -33,3 +33,4 @@ export * from "./reverse";
 export * from "./slice";
 export * from "./uniq";
 export * from "./uniqBy";
+export * from "./groupBy";

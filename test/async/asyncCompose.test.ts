@@ -1,34 +1,42 @@
+import { describe, it, expect } from "vitest";
 import { asyncCompose } from "../../src/async/asyncCompose";
 
 describe("asyncCompose", () => {
-  it("should compose async functions right to left", async () => {
-    const add = async (x: number) => x + 1;
+  it("executes functions right-to-left with async functions", async () => {
+    const addOne = async (x: number) => x + 1;
     const double = async (x: number) => x * 2;
-    const fn = asyncCompose(double, add);
-    const result = await fn(2);
-    expect(result).toBe(6); // add(2)=3 -> double(3)=6
+
+    const fn = asyncCompose(double, addOne);
+    const result = await fn(3); // addOne(3)=4 → double(4)=8
+
+    expect(result).toBe(8);
   });
 
-  it("should handle mixed sync and async functions", async () => {
-    const addSync = (x: number) => x + 1;
+  it("handles mixed synchronous and asynchronous functions", async () => {
+    const addOne = (x: number) => x + 1;
     const double = async (x: number) => x * 2;
-    const fn = asyncCompose(double, addSync);
-    const result = await fn(2);
-    expect(result).toBe(6);
+
+    const fn = asyncCompose(double, addOne);
+    const result = await fn(4); // addOne(4)=5 → double(5)=10
+
+    expect(result).toBe(10);
   });
 
-  it("should propagate errors from any function", async () => {
+  it("propagates errors from any function immediately", async () => {
     const fail = async (x: number) => {
       throw new Error("fail");
     };
-    const add = async (x: number) => x + 1;
-    const fn = asyncCompose(fail, add);
-    await expect(fn(2)).rejects.toThrow("fail");
+    const addOne = async (x: number) => x + 1;
+
+    const fn = asyncCompose(fail, addOne);
+
+    await expect(fn(1)).rejects.toThrow("fail");
   });
 
-  it("should return input if no functions are provided", async () => {
+  it("returns input if no functions are provided", async () => {
     const fn = asyncCompose();
     const result = await fn(42);
+
     expect(result).toBe(42);
   });
 });

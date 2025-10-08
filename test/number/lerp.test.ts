@@ -16,4 +16,10 @@ describe("lerp", () => {
     expect(() => lerp(0, Infinity, 0.5)).toThrow();
     expect(() => lerp(0, 10, -Infinity)).toThrow();
   });
+
+  it("should throw TypeError for non-finite numbers", () => {
+    expect(() => lerp(NaN, 10, 0.5)).toThrow(TypeError);
+    expect(() => lerp(0, Infinity, 0.5)).toThrow(TypeError);
+    expect(() => lerp(0, 10, NaN)).toThrow(TypeError);
+  });
 });

@@ -15,4 +15,10 @@ describe("toDegrees", () => {
     expect(() => toDegrees(NaN)).toThrow();
     expect(() => toDegrees(Infinity)).toThrow();
   });
+
+  it("should throw TypeError for NaN or Infinity", () => {
+    expect(() => toDegrees(NaN)).toThrow(TypeError);
+    expect(() => toDegrees(Infinity)).toThrow(TypeError);
+    expect(() => toDegrees(-Infinity)).toThrow(TypeError);
+  });
 });

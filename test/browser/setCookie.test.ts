@@ -5,10 +5,7 @@ import { setCookie } from "../../src/browser/setCookie";
 
 describe("setCookie", () => {
   beforeEach(() => {
-    Object.defineProperty(document, "cookie", {
-      writable: true,
-      value: "",
-    });
+    Object.defineProperty(document, "cookie", { writable: true, value: "" });
   });
 
   it("sets cookie with correct format and default options", () => {
@@ -16,16 +13,14 @@ describe("setCookie", () => {
     expect(document.cookie).toContain("test=value");
   });
 
-  it("supports custom options: days, path, sameSite, secure", () => {
+  it("supports custom options: expires, path, sameSite, secure", () => {
     setCookie("custom", "val", {
-      days: 1,
+      expires: 1,
       path: "/app",
       sameSite: "Strict",
       secure: true,
     });
-
     expect(document.cookie).toContain("custom=val");
-    // Note: JSDOM does not fully simulate SameSite/Secure flags, but string should include key=value
   });
 
   it("does nothing if cookie name is empty", () => {

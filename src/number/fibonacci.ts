@@ -1,33 +1,31 @@
-const memoCache: Record<string, number> = {};
+const fibCache: Record<number, bigint> = {
+  0: 0n,
+  1: 1n,
+};
+
 /**
- * Computes the `n`-th Fibonacci number using memoization.
+ * Computes the `n`-th Fibonacci number using memoization and BigInt.
  *
- * Memoization stores previously calculated Fibonacci numbers in an internal cache
- * to improve performance for repeated calls.
+ * Uses an internal cache to store results for improved performance.
+ * Automatically switches to BigInt for large values.
  *
  * @example
- * ```ts
- * fibonacci(0); // 0
- * fibonacci(1); // 1
- * fibonacci(5); // 5
- * fibonacci(10); // 55
- * ```
+ * fibonacci(10); // 55n
+ * fibonacci(100n); // 354224848179261915075n
  *
- * @param n - The non-negative integer representing the position in the Fibonacci sequence.
- * @returns The `n`-th Fibonacci number.
- * @throws {Error} If `n` is negative.
+ * @param n - The non-negative integer or bigint representing the position.
+ * @returns The `n`-th Fibonacci number as a BigInt.
+ * @throws {Error} If `n` is negative or not an integer.
  *
  * @group Number
- * @since 1.1.0
+ * @since 1.2.0
  */
-export function fibonacci(n: number): number {
-  if (n < 0) throw new Error("Fibonacci not defined for negative numbers");
-  if (n === 0) return 0;
-  if (n === 1) return 1;
+export function fibonacci(n: number | bigint): bigint {
+  const num = typeof n === "bigint" ? n : BigInt(n);
+  if (num < 0n) throw new Error("Fibonacci not defined for negative numbers");
+  if (fibCache[Number(num)] !== undefined) return fibCache[Number(num)];
 
-  if (memoCache[`fib_${n}`] !== undefined) return memoCache[`fib_${n}`];
-
-  const result = fibonacci(n - 1) + fibonacci(n - 2);
-  memoCache[`fib_${n}`] = result;
+  const result = fibonacci(num - 1n) + fibonacci(num - 2n);
+  fibCache[Number(num)] = result;
   return result;
 }

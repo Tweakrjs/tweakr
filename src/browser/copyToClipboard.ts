@@ -1,59 +1,39 @@
 /**
- * Copies the provided text to the system clipboard.
+ * Copies a string to the clipboard.
  *
- * Uses the modern `navigator.clipboard.writeText` API when available,
- * with a fallback using a hidden textarea for older browsers.
+ * Uses `navigator.clipboard` if available, otherwise falls back to a hidden textarea.
+ * Returns `true` if the operation succeeds, `false` otherwise.
  *
  * @example
  * ```ts
- * await copyToClipboard("Hello World");
- * console.log("Text copied to clipboard!");
+ * await copyToClipboard("Hello, world!");
  * ```
  *
- * @param text - The text string to copy to the clipboard.
- * @returns A promise that resolves when the text is successfully copied.
- *
- * @throws Will throw an error if copying fails.
+ * @param text - Text to copy to clipboard.
+ * @returns `true` if successful, `false` otherwise.
  *
  * @group Browser
- * @since 1.1.0
+ * @since 1.2.0
  */
-export async function copyToClipboard(text: string): Promise<void> {
-  if (!text) return;
-
+export async function copyToClipboard(text: string): Promise<boolean> {
   try {
+    if (!text) return true; // short-circuit for empty strings
+
     if (navigator.clipboard?.writeText) {
       await navigator.clipboard.writeText(text);
-      return;
+      return true;
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      const successful = document.execCommand("copy"); // true if succeeded
+      document.body.removeChild(textarea);
+
+      return successful;
     }
-
-    // Fallback for older browsers
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-
-    // Prevent page from scrolling
-    textarea.style.position = "fixed";
-    textarea.style.top = "0";
-    textarea.style.left = "0";
-    textarea.style.width = "1px";
-    textarea.style.height = "1px";
-    textarea.style.padding = "0";
-    textarea.style.border = "none";
-    textarea.style.outline = "none";
-    textarea.style.boxShadow = "none";
-    textarea.style.background = "transparent";
-    textarea.style.opacity = "0";
-
-    document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-
-    const successful = document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    if (!successful) throw new Error("Fallback copy failed");
-  } catch (err) {
-    console.error("Failed to copy to clipboard:", err);
-    throw err;
+  } catch {
+    return false;
   }
 }

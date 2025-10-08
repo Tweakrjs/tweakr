@@ -13,18 +13,28 @@
  */
 export function chunkWhile<T>(
   array: T[],
-  predicate: (item: T, index: number) => boolean
+  predicate: (item: T) => boolean
 ): T[][] {
+  if (array.length === 0) return [];
+
   const result: T[][] = [];
-  let chunk: T[] = [];
-  array.forEach((item, i) => {
-    if (predicate(item, i)) {
-      chunk.push(item);
+
+  let chunk: T[] = [array[0]];
+
+  let isCurrentChunkConditionMet = predicate(array[0]);
+
+  for (let i = 1; i < array.length; i++) {
+    const current = array[i];
+    const isCurrentConditionMet = predicate(current);
+    if (isCurrentConditionMet === isCurrentChunkConditionMet) {
+      chunk.push(current);
     } else {
-      if (chunk.length) result.push(chunk);
-      chunk = [item];
+      result.push(chunk);
+      chunk = [current];
+      isCurrentChunkConditionMet = isCurrentConditionMet;
     }
-  });
-  if (chunk.length) result.push(chunk);
+  }
+
+  result.push(chunk);
   return result;
 }

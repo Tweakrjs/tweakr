@@ -1,34 +1,42 @@
+import { describe, it, expect } from "vitest";
 import { asyncPipe } from "../../src/async/asyncPipe";
 
 describe("asyncPipe", () => {
-  it("should compose async functions left to right", async () => {
-    const add = async (x: number) => x + 1;
+  it("executes functions left-to-right with async functions", async () => {
+    const addOne = async (x: number) => x + 1;
     const double = async (x: number) => x * 2;
-    const fn = asyncPipe(add, double);
-    const result = await fn(2);
-    expect(result).toBe(6); // add(2)=3 -> double(3)=6
+
+    const fn = asyncPipe(addOne, double);
+    const result = await fn(3); // addOne(3)=4 → double(4)=8
+
+    expect(result).toBe(8);
   });
 
-  it("should handle mixed sync and async functions", async () => {
-    const add = (x: number) => x + 1;
+  it("handles mixed synchronous and asynchronous functions", async () => {
+    const addOne = (x: number) => x + 1;
     const double = async (x: number) => x * 2;
-    const fn = asyncPipe(add, double);
-    const result = await fn(2);
-    expect(result).toBe(6);
+
+    const fn = asyncPipe(addOne, double);
+    const result = await fn(4); // addOne(4)=5 → double(5)=10
+
+    expect(result).toBe(10);
   });
 
-  it("should propagate errors from any function", async () => {
+  it("propagates errors from any function immediately", async () => {
     const fail = async (x: number) => {
       throw new Error("fail");
     };
-    const add = async (x: number) => x + 1;
-    const fn = asyncPipe(add, fail);
-    await expect(fn(2)).rejects.toThrow("fail");
+    const addOne = async (x: number) => x + 1;
+
+    const fn = asyncPipe(addOne, fail);
+
+    await expect(fn(1)).rejects.toThrow("fail");
   });
 
-  it("should return input if no functions are provided", async () => {
+  it("returns input if no functions are provided", async () => {
     const fn = asyncPipe();
     const result = await fn(42);
+
     expect(result).toBe(42);
   });
 });

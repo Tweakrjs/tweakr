@@ -18,16 +18,16 @@ describe("readFromClipboard", () => {
     expect(readText).toHaveBeenCalled();
   });
 
-  it("throws error when Clipboard API is unavailable", async () => {
-    await expect(readFromClipboard()).rejects.toThrow(
-      "Clipboard API not supported or requires a secure context with user interaction"
-    );
+  it("returns null when Clipboard API is unavailable", async () => {
+    const result = await readFromClipboard();
+    expect(result).toBeNull();
   });
 
-  it("throws error if Clipboard API rejects", async () => {
+  it("returns null if Clipboard API rejects", async () => {
     const readText = vi.fn().mockRejectedValue(new Error("denied"));
     Object.assign(navigator, { clipboard: { readText } });
 
-    await expect(readFromClipboard()).rejects.toThrow("denied");
+    const result = await readFromClipboard();
+    expect(result).toBeNull();
   });
 });

@@ -1,36 +1,43 @@
 /**
- * Wraps a function in a try-catch block and provides a fallback function
- * in case of errors.
+ * Safely executes a function and returns a fallback value or result
+ * from a fallback function if an error is thrown.
+ *
+ * Supports both sync and async functions with typed fallbacks.
  *
  * @example
  * ```ts
- * const risky = () => JSON.parse("invalid json");
- * const safe = tryCatch(risky, (err) => ({ error: err }));
- * console.log(safe()); // { error: SyntaxError: ... }
+ * const risky = () => JSON.parse("invalid");
+ * const safe = tryCatch(risky, (err) => ({ error: String(err) }));
+ * console.log(safe()); // { error: "SyntaxError: ..." }
+ *
+ * const asyncRisky = async () => { throw new Error("Oops"); };
+ * const safeAsync = tryCatch(asyncRisky, (err) => ({ error: String(err) }));
+ * console.log(await safeAsync()); // { error: "Error: Oops" }
  * ```
  *
- * @param fn - The function to execute.
- * @param fallback - Function to execute if `fn` throws, receives the error.
- * @param options - Optional settings:
- *   - log: whether to log the error to the console.
- * @returns A function that executes `fn` safely with fallback.
+ * @param fn - Function to execute (sync or async)
+ * @param fallback - Fallback function executed when an error occurs
+ * @param options - Optional configuration:
+ *   - `log`: log errors to console (default: false)
+ *   - `rethrow`: rethrow error after fallback (default: false)
+ * @returns Wrapped function returning original result or fallback
  *
  * @group Function
- * @since 1.1.0
+ * @since 1.2.0
  */
-export function tryCatch<T>(
-  fn: () => T,
-  fallback: (error?: unknown) => T,
-  options?: { log?: boolean }
-) {
-  return () => {
+export function tryCatch<T, F>(
+  fn: (...args: any[]) => T | Promise<T>,
+  fallback: (error?: unknown) => F | Promise<F>,
+  options?: { log?: boolean; rethrow?: boolean }
+): (...args: Parameters<typeof fn>) => Promise<T | F> {
+  return async (...args: any[]) => {
     try {
-      return fn();
+      return await fn(...args);
     } catch (error) {
-      if (options?.log) {
-        console.error("tryCatch caught error:", error);
-      }
-      return fallback(error);
+      if (options?.log) console.error("tryCatch caught error:", error);
+      const fallbackValue = await fallback(error);
+      if (options?.rethrow) throw error;
+      return fallbackValue;
     }
   };
 }

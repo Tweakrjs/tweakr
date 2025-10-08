@@ -43,4 +43,9 @@ describe("deepEqual", () => {
     expect(deepEqual({ a: 1 }, { a: 2 })).toBe(false);
     expect(deepEqual([1, 2], [1, 3])).toBe(false);
   });
+
+  it("should return false for mismatched types", () => {
+    expect(deepEqual([], {})).toBe(false);
+    expect(deepEqual(new Map(), {})).toBe(false);
+  });
 });

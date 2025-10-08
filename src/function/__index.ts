@@ -1,6 +1,5 @@
 export * from "./after";
 export * from "../async/asyncCompose";
-export * from "../async/asyncPipe";
 export * from "./before";
 export * from "./compose";
 export * from "./curry";

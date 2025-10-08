@@ -1,68 +1,53 @@
+import { describe, it, expect } from "vitest";
 import { groupBy } from "../../src/array/groupBy";
 
 describe("groupBy", () => {
-  it("should group objects by a string key", () => {
+  it("groups objects by a key property", () => {
     const data = [
-      { type: "fruit", name: "apple" },
-      { type: "fruit", name: "banana" },
-      { type: "vegetable", name: "carrot" },
+      { id: 1, type: "a" },
+      { id: 2, type: "b" },
+      { id: 3, type: "a" },
     ];
     const grouped = groupBy(data, (item) => item.type);
-
     expect(grouped).toEqual({
-      fruit: [
-        { type: "fruit", name: "apple" },
-        { type: "fruit", name: "banana" },
+      a: [
+        { id: 1, type: "a" },
+        { id: 3, type: "a" },
       ],
-      vegetable: [{ type: "vegetable", name: "carrot" }],
+      b: [{ id: 2, type: "b" }],
     });
   });
 
-  it("should handle undefined and null keys safely", () => {
-    const data = [
-      { type: "fruit", name: "apple" },
-      { type: null, name: "unknown1" },
-      { type: undefined, name: "unknown2" },
-    ];
-    const grouped = groupBy(data, (item) => item.type);
-
+  it("handles undefined and null keys", () => {
+    const data = [1, 2, undefined, null, 3];
+    const grouped = groupBy(data, (n) => n);
     expect(grouped).toEqual({
-      fruit: [{ type: "fruit", name: "apple" }],
-      __undefined__: [
-        { type: null, name: "unknown1" },
-        { type: undefined, name: "unknown2" },
-      ],
+      "1": [1],
+      "2": [2],
+      __undefined__: [undefined, null],
+      "3": [3],
     });
   });
 
-  it("should handle numeric keys", () => {
-    const data = [
-      { id: 1, value: "a" },
-      { id: 2, value: "b" },
-      { id: 1, value: "c" },
-    ];
-    const grouped = groupBy(data, (item) => item.id);
-
-    expect(grouped).toEqual({
-      "1": [
-        { id: 1, value: "a" },
-        { id: 1, value: "c" },
-      ],
-      "2": [{ id: 2, value: "b" }],
-    });
-  });
-
-  it("should return an empty object for an empty array", () => {
-    const grouped = groupBy([], (item: any) => item.key);
-    expect(grouped).toEqual({});
-  });
-
-  it("should work with complex key functions", () => {
-    const data = ["apple", "banana", "apricot", "blueberry"];
-    const grouped = groupBy(data, (item) => item[0]); // group by first letter
+  it("works with primitive values as keys", () => {
+    const data = ["apple", "banana", "apricot"];
+    const grouped = groupBy(data, (s) => s[0]);
     expect(grouped).toEqual({
       a: ["apple", "apricot"],
-      b: ["banana", "blueberry"],
+      b: ["banana"],
     });
+  });
+
+  it("preserves original array order", () => {
+    const data = [3, 1, 4, 1, 5, 9];
+    const grouped = groupBy(data, (n) => (n % 2 === 0 ? "even" : "odd"));
+    expect(grouped).toEqual({
+      odd: [3, 1, 1, 5, 9],
+      even: [4],
+    });
+  });
+
+  it("returns empty object for empty array", () => {
+    expect(groupBy([], (x) => x)).toEqual({});
   });
 });

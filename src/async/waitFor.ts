@@ -4,15 +4,21 @@
 export interface WaitForOptions {
   /**
    * Delay between condition checks in milliseconds, or a function returning the next delay.
+   * Can also be async.
    * Defaults to `100`.
    */
-  interval?: number | (() => number);
+  interval?: number | (() => number | Promise<number>);
 
   /**
    * Maximum time to wait before throwing an error, in milliseconds.
    * Defaults to `5000`.
    */
   timeoutMs?: number;
+
+  /**
+   * Optional error message to throw on timeout.
+   */
+  errorMessage?: string;
 }
 
 /**
@@ -37,13 +43,13 @@ export interface WaitForOptions {
  * @throws Will throw an error if the condition is not met within the timeout.
  *
  * @group Async
- * @since 1.1.0
+ * @since 1.2.0
  */
-export async function waitFor(
-  condition: () => boolean | Promise<boolean>,
+export async function waitFor<T extends boolean>(
+  condition: () => T | Promise<T>,
   options: WaitForOptions = {}
 ): Promise<void> {
-  const { interval = 100, timeoutMs = 5000 } = options;
+  const { interval = 100, timeoutMs = 5000, errorMessage } = options;
   const start = Date.now();
 
   while (true) {
@@ -51,10 +57,11 @@ export async function waitFor(
     if (result) return;
 
     if (Date.now() - start > timeoutMs) {
-      throw new Error("Timeout waiting for condition");
+      throw new Error(errorMessage ?? "Timeout waiting for condition");
     }
 
-    const waitTime = typeof interval === "function" ? interval() : interval;
+    const waitTime =
+      typeof interval === "function" ? await interval() : interval;
     await new Promise((r) => setTimeout(r, waitTime));
   }
 }

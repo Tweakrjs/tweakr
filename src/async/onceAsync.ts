@@ -1,7 +1,7 @@
 /**
  * Ensures an asynchronous function is executed only once.
  *
- * Subsequent calls return the same resolved or pending promise
+ * Subsequent calls return the same pending or resolved promise
  * from the first invocation.
  *
  * @example
@@ -18,15 +18,27 @@
  *
  * @typeParam T - The async function type.
  * @param fn - The asynchronous function to execute only once.
- * @returns A new function that runs `fn` once and caches the result.
+ * @returns A wrapped function that runs `fn` once and caches the promise.
  *
  * @group Async
- * @since 1.0.0
+ * @since 1.2.0
  */
-export function onceAsync<T extends (...args: any[]) => Promise<any>>(fn: T) {
-  let result: Promise<ReturnType<T>> | null = null;
-  return (...args: Parameters<T>): Promise<ReturnType<T>> => {
-    if (!result) result = fn(...args);
-    return result;
+export function onceAsync<T extends (...args: any[]) => Promise<unknown>>(
+  fn: T
+) {
+  let promise: Promise<Awaited<ReturnType<T>>> | null = null;
+
+  return function (
+    this: ThisParameterType<T>,
+    ...args: Parameters<T>
+  ): Promise<Awaited<ReturnType<T>>> {
+    // Lazily create the cached promise
+    if (!promise) {
+      // Preserve `this` context and ensure consistent return type
+      promise = Promise.resolve(fn.apply(this, args)) as Promise<
+        Awaited<ReturnType<T>>
+      >;
+    }
+    return promise;
   };
 }

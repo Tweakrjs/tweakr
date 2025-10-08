@@ -20,8 +20,22 @@ export function replaceAll(
   search: string | RegExp,
   replace: string
 ): string {
+  if (!str || !search) return str;
+
   if (typeof search === "string") {
+    if (search === "") return str;
     return str.split(search).join(replace);
   }
-  return str.replace(new RegExp(search, "g"), replace);
+
+  // Preserve flags, add 'g' if missing
+  const flags = search.flags.includes("g") ? search.flags : search.flags + "g";
+
+  // Custom replacer to preserve original match casing
+  return str.replace(new RegExp(search.source, flags), (match) => {
+    // If match is capitalized, capitalize replacement
+    if (match[0] === match[0].toUpperCase()) {
+      return replace[0].toUpperCase() + replace.slice(1);
+    }
+    return replace;
+  });
 }

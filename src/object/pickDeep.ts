@@ -16,21 +16,40 @@
  */
 export function pickDeep(obj: any, paths: string[]): any {
   const result: any = {};
+
   for (const path of paths) {
     const keys = path.split(".");
     let src = obj;
     let dest = result;
+    let skip = false;
+
     for (let i = 0; i < keys.length; i++) {
-      if (src === undefined) break;
       const key = keys[i];
+
+      // Stop if source key does not exist
+      if (src === undefined || !(key in src)) {
+        skip = true;
+        break;
+      }
+
       if (i === keys.length - 1) {
-        if (key in src) dest[key] = src[key];
+        // Only assign if key exists in source
+        dest[key] = src[key];
       } else {
         if (!(key in dest)) dest[key] = {};
         src = src[key];
         dest = dest[key];
       }
     }
+
+    // If path was skipped (key not in source), remove any empty object created
+    if (skip) {
+      const firstKey = keys[0];
+      if (Object.keys(result[firstKey] || {}).length === 0) {
+        delete result[firstKey];
+      }
+    }
   }
+
   return result;
 }

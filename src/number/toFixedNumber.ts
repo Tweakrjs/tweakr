@@ -1,22 +1,17 @@
 /**
- * Rounds a number to a fixed number of decimal places and returns it as a number.
+ * Rounds a number to a fixed number of decimal places using precision-safe math.
+ *
+ * Handles floating-point rounding issues for both positive and negative values
+ * (e.g., 1.005 → 1.01, -1.235 → -1.24).
  *
  * @example
- * ```ts
- * toFixedNumber(3.14159);      // returns 3.14
- * toFixedNumber(1.005, 3);     // returns 1.005
- * toFixedNumber(NaN);          // returns NaN
- * ```
- *
- * @param value - The number to round.
- * @param decimals - Number of decimal places (default `2`).
- * @returns The rounded number.
- *
- * @group Number
- * @since 1.1.0
+ * toFixedNumber(1.005, 2);   // 1.01
+ * toFixedNumber(-1.235, 2);  // -1.24
  */
 export function toFixedNumber(value: number, decimals = 2): number {
-  if (!Number.isFinite(value)) return value; // preserve NaN/Infinity
+  if (!Number.isFinite(value)) return value;
+
   const factor = 10 ** decimals;
-  return Math.round(value * factor) / factor;
+  const adjusted = value + Math.sign(value) * Number.EPSILON;
+  return Math.round(adjusted * factor) / factor;
 }
