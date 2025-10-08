@@ -2,71 +2,81 @@
 
 **Site:** [https://tweakrjs.github.io/tweakr/](https://tweakrjs.github.io/tweakr/)
 
----
-
-## v1.2.x – 2025-10-08
-
-**🔥 New in v1.2.x:**
-
-- **50 new utility functions** across Array, Object, String, Number, and Function/Async categories.
-- Focused on **core Lodash-inspired helpers** for arrays, objects, and strings.
-
-### Array Utilities (15)
-
-- `union`, `unionBy`, `intersectionBy`, `differenceBy`, `uniqBy`, `zip`, `zipWith`, `unzip`, `flattenDepth`, `chunkWhile`, `pullAll`, `take`, `takeRight`, `dropWhile`, `takeWhile`
-
-### Object Utilities (12)
-
-- `pickBy`, `omitBy`, `mapKeys`, `mapValues`, `mapValuesDeep`, `invertBy`, `has`, `unset`, `mergeAll`, `assign`, `pickDeep`, `omitDeep`
-
-### String Utilities (6)
-
-- `removeNumbers`, `truncateWords`, `replaceVowels`, `reverseWords`, `snakeToCamel`, `camelToKebab`
-
-### Number Utilities (5)
-
-- `randomInt`, `randomFloat`, `clamp`, `factorialBigInt`, `isEvenBigInt`
-
-### Function / Misc Utilities (12)
-
-- `tap`, `wrap`, `after`, `before`, `curryN`, `composeN`, `pipeN`, `memoizeN`, `onceN`, `noopAsync`, `identityAsync`, `retryAsync`
-
-**Improvements / Fixes:** Optimized performance, type safety, BigInt support, async readiness, edge-case handling for all existing v1.1 functions.
-
----
-
 ## v1.1.x – 2025-10-07
 
 **🔥 New in v1.1.x:**
 
-- **`groupBy`** – Group array elements by a key or callback, safely handling `undefined`/`null` keys.
-- **String Utilities v1.1.x added:**
-  `endsWith`, `startsWith`, `includes`, `replaceAll`, `trimAll`, `collapseWhitespace`, `ordinalSuffix`, `honorific` (get/remove suffix), `removePrefix`, `removeSuffix`
+- **`groupBy`** – Newly added! Group array elements by a key or callback, safely handling `undefined`/`null` keys.
 
-**Improvements / Fixes:**
+**Other Improvements:**
 
-- **Array:** `flatten`, `flattenDeep` optimized; `unique` handles all value types efficiently
-- **Async:** `waitFor` flexible; `debounceAsync`, `queue`, `parallelLimit` optimized
-- **Function:** `memoize`, `memoizeAsync` handle deep objects; `tryCatch` improved
-- **Number:** `fibonacci` and `factorial` memoized; `toFixedNumber`, `toPercentage` precision improved
-- **Object:** `deepEqual` optimized
-- **Browser:** `scrollToTop`, `scrollToBottom`, `focusElement` optimized; clipboard & cookie helpers improved
+### Array Utilities
+
+- Optimized `flatten` and `flattenDeep` for large arrays
+- `unique` now handles numbers, strings, and objects more efficiently
+- TypeScript generics improved for better inference
+
+### Async Utilities
+
+- `waitFor` now supports flexible polling intervals and enhanced type safety
+- Optimized `debounceAsync`, `queue`, and `parallelLimit` for performance
+- `retryBackoff` behavior now more predictable
+- `asyncCompose` and `asyncPipe` optimized for faster execution
+
+### Function Utilities
+
+- `memoize` and `memoizeAsync` handle deep objects properly
+- Improved error handling in `tryCatch`
+- TypeScript improvements for `curry`, `partial`, and other higher-order functions
+
+### Number Utilities
+
+- Optimized `fibonacci` and `factorial` using memoization
+- Improved precision handling in `toFixedNumber` and `toPercentage`
+- Enhanced type safety for `lerp`, `toDegrees`, `toRadians`
+
+### Object Utilities
+
+- Renamed `deepClone` → `cloneDeep` internally
+- Optimized `cloneDeep` and `deepMerge` for large objects
+- TypeScript typings and usability improvements for `filterKeys`, `filterValues`, and `mapValues`
+
+### Browser Utilities
+
+- Performance improvements for `scrollToTop`, `scrollToBottom`, `focusElement`
+- Clipboard helpers (`copyToClipboard`, `readFromClipboard`) now fully async-safe
+- Refined cookie helpers (`getCookie`, `setCookie`, `deleteCookie`)
+- Updated TypeScript types and generics
+
+### String Utilities
+
+- All previous `lang/` functions fully migrated to `string/`
+- **New String Utilities v1.1.x:**
+
+  - `endsWith`
+  - `honorific` (suffix-aware)
+  - `includes`
+  - `removePrefix`
+  - `removeSuffix`
+  - `replaceAll`
+  - `startsWith`
+  - `trimAll`
+  - `collapseWhitespace`
+  - `ordinalSuffix`
+
+- Full TypeScript typings for all string helpers
+
+### General Improvements
+
+- Updated documentation and usage examples for all functions
+- Ensured full Vitest coverage, including async edge cases
+- Optimized minified UMD and ESM builds for tree-shaking and bundle size
 
 ---
 
-## v1.0.0 – 2025-10-06
+## Quick Usage Examples
 
-**Initial release:**
-
-- **153 utility functions** across **Array, Async, Function, String, Number, Object, Browser, and Misc** categories.
-- Fully modular, TypeScript-ready, tree-shakable, with minified UMD for browser usage.
-- Core helpers included: `flatten`, `unique`, `debounce`, `memoize`, `cloneDeep`, `endsWith`, `startsWith`, `random`, `sleep`, `copyToClipboard`, etc.
-
----
-
-### Notes
-
-- Tree-shakable per-folder imports:
+### `groupBy`
 
 ```ts
 import { flatten } from "tweakr/array";
@@ -110,62 +120,48 @@ console.log(mergeAll([{ a: 1 }, { b: 2 }, { a: 3 }])); // {a:3, b:2}
 console.log(getOrDefault({ a: 1 }, "d", 99)); // 99
 ```
 
-### String Utilities
+### New String Utilities v1.1.x
 
 ```ts
 import {
   endsWith,
-  removeNumbers,
-  truncateWords,
-  snakeToCamel,
-  camelToKebab,
+  removeHonorificSuffix,
+  getHonorificSuffix,
+  includes,
+  removePrefix,
+  removeSuffix,
+  replaceAll,
+  startsWith,
+  trimAll,
+  collapseWhitespace,
+  ordinalSuffix,
 } from "tweakr";
 
 console.log(endsWith("Hello World", "World")); // true
-console.log(removeNumbers("a1b2c3")); // "abc"
-console.log(truncateWords("The quick brown fox jumps", 3)); // "The quick brown"
-console.log(snakeToCamel("hello_world_test")); // "helloWorldTest"
-console.log(camelToKebab("helloWorldTest")); // "hello-world-test"
+
+// Honorific suffix handling
+console.log(removeHonorificSuffix("John Doe Jr.")); // "John Doe"
+console.log(removeHonorificSuffix("Jane Smith IV")); // "Jane Smith"
+console.log(getHonorificSuffix("John Doe Jr.")); // "Jr."
+console.log(getHonorificSuffix("Jane Smith")); // null
+
+console.log(includes("TypeScript", "Script")); // true
+console.log(removePrefix("unhappy", "un")); // "happy"
+console.log(removeSuffix("running", "ing")); // "run"
+console.log(replaceAll("foo bar foo", "foo", "baz")); // "baz bar baz"
+console.log(startsWith("OpenAI", "Open")); // true
+console.log(trimAll("   spaced out   ")); // "spaced out"
+console.log(collapseWhitespace("This   is   spaced")); // "This is spaced"
+console.log(ordinalSuffix(1)); // "1st"
+console.log(ordinalSuffix(22)); // "22nd"
+console.log(ordinalSuffix(103)); // "103rd"
 ```
 
-### Number Utilities
+---
 
-```ts
-import {
-  randomInt,
-  randomFloat,
-  factorialBigInt,
-  isEvenBigInt,
-  clamp,
-} from "tweakr";
+## Previous Version
 
-console.log(randomInt(1, 10)); // e.g., 7
-console.log(randomFloat(0, 1)); // e.g., 0.456
-console.log(factorialBigInt(20n)); // 2432902008176640000n
-console.log(isEvenBigInt(42n)); // true
-console.log(clamp(15, 0, 10)); // 10
-```
+### v1.0.0 – 2025-10-06
 
-### Function / Async Utilities
-
-```ts
-import { tap, memoizeN, retryAsync, pipeN, noopAsync } from "tweakr";
-
-console.log(tap([1, 2, 3], (arr) => console.log("Array:", arr))); // logs "Array: [1,2,3]"
-const fib = memoizeN((n: number) => (n <= 1 ? 1 : fib(n - 1) + fib(n - 2)));
-console.log(fib(10)); // 89
-
-await retryAsync(
-  async () => {
-    if (Math.random() < 0.8) throw new Error("Try again");
-    return "Success";
-  },
-  { maxAttempts: 5 }
-);
-
-const add = (x: number) => x + 1;
-const double = (x: number) => x * 2;
-console.log(pipeN(add, double)(3)); // 8
-
-await noopAsync(); // does nothing asynchronously
-```
+- Initial release: 153 utility functions across **array, async, function, string, number, object, browser, and misc helpers**
+- Fully modular, TypeScript-ready, tree-shakable, with minified UMD for browser usage
